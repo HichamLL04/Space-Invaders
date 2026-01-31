@@ -105,7 +105,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -180,7 +180,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SpaceInvaders_0
+      name: Alien1
       rect:
         serializedVersion: 2
         x: 3
@@ -202,7 +202,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpaceInvaders_1
+      name: Alien3
       rect:
         serializedVersion: 2
         x: 4
@@ -224,7 +224,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpaceInvaders_2
+      name: Alien2
       rect:
         serializedVersion: 2
         x: 19
@@ -246,7 +246,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpaceInvaders_3
+      name: Alien4
       rect:
         serializedVersion: 2
         x: 20
@@ -334,7 +334,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpaceInvaders_7
+      name: Alien5
       rect:
         serializedVersion: 2
         x: 4
@@ -356,7 +356,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpaceInvaders_8
+      name: Alien6
       rect:
         serializedVersion: 2
         x: 19
@@ -422,7 +422,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpaceInvaders_11
+      name: Alien7
       rect:
         serializedVersion: 2
         x: 4
@@ -444,7 +444,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpaceInvaders_12
+      name: Alien8
       rect:
         serializedVersion: 2
         x: 20
@@ -510,7 +510,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpaceInvaders_15
+      name: Alien9
       rect:
         serializedVersion: 2
         x: 4
@@ -532,7 +532,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpaceInvaders_16
+      name: Alien10
       rect:
         serializedVersion: 2
         x: 20
@@ -554,12 +554,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpaceInvaders_17
+      name: SpaceInvaders_25
       rect:
         serializedVersion: 2
         x: 53
         y: 0
-        width: 8
+        width: 22
         height: 4
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -576,28 +576,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpaceInvaders_18
-      rect:
-        serializedVersion: 2
-        x: 67
-        y: 0
-        width: 8
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b5a9f4bc4e14a9870800000000000000
-      internalID: 8690330881884133979
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: SpaceInvaders_19
       rect:
         serializedVersion: 2
@@ -606,7 +584,7 @@ TextureImporter:
         width: 3
         height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -628,7 +606,7 @@ TextureImporter:
         width: 16
         height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -650,7 +628,7 @@ TextureImporter:
         width: 3
         height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -672,7 +650,7 @@ TextureImporter:
         width: 15
         height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -694,7 +672,7 @@ TextureImporter:
         width: 26
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -703,6 +681,28 @@ TextureImporter:
       bones: []
       spriteID: cac62924149fe844da6d18bee55541d1
       internalID: -2127522246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceInvaders_0
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 0
+        width: 22
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f1ce44796dc2f4499848b42e2eb108b
+      internalID: -1694467837
       vertices: []
       indices: 
       edges: []
@@ -721,29 +721,30 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SpaceInvaders_0: -4583131672698089841
-      SpaceInvaders_1: 1863726200222006530
+      Alien1: -4583131672698089841
+      Alien10: 7727678308096188875
+      Alien2: 7300022034202718653
+      Alien3: 1863726200222006530
+      Alien4: 8841146485251879895
+      Alien5: 3705950429458302301
+      Alien6: 5701621314584977698
+      Alien7: -8087674160085439956
+      Alien8: 1990800117308693020
+      Alien9: 1504096538152212585
+      SpaceInvaders_0: -1694467837
       SpaceInvaders_10: 2535094620246395379
-      SpaceInvaders_11: -8087674160085439956
-      SpaceInvaders_12: 1990800117308693020
       SpaceInvaders_13: -29650441281543228
       SpaceInvaders_14: 8754003793965812841
-      SpaceInvaders_15: 1504096538152212585
-      SpaceInvaders_16: 7727678308096188875
-      SpaceInvaders_17: 5074163038422519379
       SpaceInvaders_18: 8690330881884133979
       SpaceInvaders_19: 1534823109
-      SpaceInvaders_2: 7300022034202718653
       SpaceInvaders_20: 37638560
       SpaceInvaders_21: -947863307
       SpaceInvaders_22: 1622781255
       SpaceInvaders_23: -2127522246
-      SpaceInvaders_3: 8841146485251879895
+      SpaceInvaders_25: 5074163038422519379
       SpaceInvaders_4: 7841723954438648023
       SpaceInvaders_5: 7099710728136048336
       SpaceInvaders_6: -9114045864801231343
-      SpaceInvaders_7: 3705950429458302301
-      SpaceInvaders_8: 5701621314584977698
       SpaceInvaders_9: 4102053327551404284
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
