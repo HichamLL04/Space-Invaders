@@ -268,28 +268,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpaceInvaders_4
-      rect:
-        serializedVersion: 2
-        x: 39
-        y: 69
-        width: 1
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7d0bcfaa36663dc60800000000000000
-      internalID: 7841723954438648023
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: SpaceInvaders_5
       rect:
         serializedVersion: 2
@@ -707,6 +685,50 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: SpaceInvaders_1
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 69
+        width: 1
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93a54040c24c49f4994fac9029224358
+      internalID: 1248330542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceInvaders_2
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 69
+        width: 1
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72b9789aef2ad544f823d5d9b8ec084a
+      internalID: -2119957763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -732,11 +754,13 @@ TextureImporter:
       Alien8: 1990800117308693020
       Alien9: 1504096538152212585
       SpaceInvaders_0: -1694467837
+      SpaceInvaders_1: 1248330542
       SpaceInvaders_10: 2535094620246395379
       SpaceInvaders_13: -29650441281543228
       SpaceInvaders_14: 8754003793965812841
       SpaceInvaders_18: 8690330881884133979
       SpaceInvaders_19: 1534823109
+      SpaceInvaders_2: -2119957763
       SpaceInvaders_20: 37638560
       SpaceInvaders_21: -947863307
       SpaceInvaders_22: 1622781255

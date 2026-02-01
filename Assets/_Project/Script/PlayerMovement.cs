@@ -18,4 +18,9 @@ public class PlayerMovement : MonoBehaviour
         Vector2 playerVelocity = new Vector2(moveInput.x * speed, 0f);
         myRb.linearVelocity = playerVelocity;
     }
+
+    public void OnAttack()
+    {
+        
+    }
 }
