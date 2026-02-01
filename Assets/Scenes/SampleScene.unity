@@ -447,7 +447,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   speed: 5
-  prefabAtack: {fileID: 0}
+  prefabAtack: {fileID: 1714920104945336041, guid: e9777990e28c8704cb6fac249e209db5, type: 3}
+  tiempoAtaque: 1
 --- !u!70 &350090601
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -847,18 +848,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 1289859309}
     m_Modifications:
     - target: {fileID: 2333303728452464978, guid: c95484c5a4e99e1489c72699c35cd27d, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 101.122185
-      objectReference: {fileID: 0}
-    - target: {fileID: 2333303728452464978, guid: c95484c5a4e99e1489c72699c35cd27d, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 101.122185
-      objectReference: {fileID: 0}
-    - target: {fileID: 2333303728452464978, guid: c95484c5a4e99e1489c72699c35cd27d, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 101.122185
-      objectReference: {fileID: 0}
-    - target: {fileID: 2333303728452464978, guid: c95484c5a4e99e1489c72699c35cd27d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 200.00002
       objectReference: {fileID: 0}
@@ -901,10 +890,6 @@ PrefabInstance:
     - target: {fileID: 3692938320225570108, guid: c95484c5a4e99e1489c72699c35cd27d, type: 3}
       propertyPath: m_Name
       value: Escudo (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3692938320225570108, guid: c95484c5a4e99e1489c72699c35cd27d, type: 3}
-      propertyPath: m_TagString
-      value: Block
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1151,18 +1136,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 1289859309}
     m_Modifications:
     - target: {fileID: 2333303728452464978, guid: c95484c5a4e99e1489c72699c35cd27d, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 101.122185
-      objectReference: {fileID: 0}
-    - target: {fileID: 2333303728452464978, guid: c95484c5a4e99e1489c72699c35cd27d, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 101.122185
-      objectReference: {fileID: 0}
-    - target: {fileID: 2333303728452464978, guid: c95484c5a4e99e1489c72699c35cd27d, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 101.122185
-      objectReference: {fileID: 0}
-    - target: {fileID: 2333303728452464978, guid: c95484c5a4e99e1489c72699c35cd27d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -400.00003
       objectReference: {fileID: 0}
@@ -1205,10 +1178,6 @@ PrefabInstance:
     - target: {fileID: 3692938320225570108, guid: c95484c5a4e99e1489c72699c35cd27d, type: 3}
       propertyPath: m_Name
       value: Escudo (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3692938320225570108, guid: c95484c5a4e99e1489c72699c35cd27d, type: 3}
-      propertyPath: m_TagString
-      value: Block
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
