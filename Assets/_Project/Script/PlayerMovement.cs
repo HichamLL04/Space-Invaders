@@ -1,9 +1,11 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float speed;
+    [SerializeField] GameObject prefabAtack;
     Rigidbody2D myRb;
     Vector2 moveInput;
     
