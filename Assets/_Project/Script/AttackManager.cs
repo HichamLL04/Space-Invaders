@@ -1,16 +1,26 @@
+using UnityEditor.Callbacks;
 using UnityEngine;
 
 public class AttackManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    float speed = 10f;
+    Rigidbody2D myRb;
     void Start()
     {
-        
+        myRb = GetComponent<Rigidbody2D>();
+        myRb.linearVelocityY = speed;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Pared") || collision.gameObject.layer == LayerMask.NameToLayer("Block"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
