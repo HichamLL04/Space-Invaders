@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4446898867505262854
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 958946070368758412, guid: 93776a9d6751b494384c9384f1ae4fb2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1863726200222006530, guid: 5c8c84dcb6163914b8b5570bc4e647f6, type: 3}
+    - target: {fileID: 1829778354827712102, guid: 93776a9d6751b494384c9384f1ae4fb2, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d0760f2e292ae9d47a4696b11dd0ca97, type: 2}
+    - target: {fileID: 2360946900357019922, guid: 93776a9d6751b494384c9384f1ae4fb2, type: 3}
+      propertyPath: m_Name
+      value: Alien2 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2360946900357019922, guid: 93776a9d6751b494384c9384f1ae4fb2, type: 3}
+      propertyPath: m_TagString
+      value: Enemy5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7140737404822538094, guid: 93776a9d6751b494384c9384f1ae4fb2, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7140737404822538094, guid: 93776a9d6751b494384c9384f1ae4fb2, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7915075143378299082, guid: 93776a9d6751b494384c9384f1ae4fb2, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7915075143378299082, guid: 93776a9d6751b494384c9384f1ae4fb2, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7915075143378299082, guid: 93776a9d6751b494384c9384f1ae4fb2, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7915075143378299082, guid: 93776a9d6751b494384c9384f1ae4fb2, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7915075143378299082, guid: 93776a9d6751b494384c9384f1ae4fb2, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7915075143378299082, guid: 93776a9d6751b494384c9384f1ae4fb2, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7915075143378299082, guid: 93776a9d6751b494384c9384f1ae4fb2, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0.6875
+      objectReference: {fileID: 0}
+    - target: {fileID: 7915075143378299082, guid: 93776a9d6751b494384c9384f1ae4fb2, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0.5625
+      objectReference: {fileID: 0}
+    - target: {fileID: 7915075143378299082, guid: 93776a9d6751b494384c9384f1ae4fb2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7915075143378299082, guid: 93776a9d6751b494384c9384f1ae4fb2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7915075143378299082, guid: 93776a9d6751b494384c9384f1ae4fb2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -9102.109
+      objectReference: {fileID: 0}
+    - target: {fileID: 7915075143378299082, guid: 93776a9d6751b494384c9384f1ae4fb2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7915075143378299082, guid: 93776a9d6751b494384c9384f1ae4fb2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7915075143378299082, guid: 93776a9d6751b494384c9384f1ae4fb2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7915075143378299082, guid: 93776a9d6751b494384c9384f1ae4fb2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7915075143378299082, guid: 93776a9d6751b494384c9384f1ae4fb2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7915075143378299082, guid: 93776a9d6751b494384c9384f1ae4fb2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7915075143378299082, guid: 93776a9d6751b494384c9384f1ae4fb2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7915075143378299082, guid: 93776a9d6751b494384c9384f1ae4fb2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7915075143378299082, guid: 93776a9d6751b494384c9384f1ae4fb2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2360946900357019922, guid: 93776a9d6751b494384c9384f1ae4fb2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5160842982513703841}
+  m_SourcePrefab: {fileID: 100100000, guid: 93776a9d6751b494384c9384f1ae4fb2, type: 3}
+--- !u!1 &2122684472018733076 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2360946900357019922, guid: 93776a9d6751b494384c9384f1ae4fb2, type: 3}
+  m_PrefabInstance: {fileID: 4446898867505262854}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5160842982513703841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2122684472018733076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48622ed71a0c03d42b2982b8d60fb4cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyManager
