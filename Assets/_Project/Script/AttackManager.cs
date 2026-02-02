@@ -18,9 +18,9 @@ public class AttackManager : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Pared") || collision.gameObject.layer == LayerMask.NameToLayer("Block"))
-        {
+        //if (collision.gameObject.layer == LayerMask.NameToLayer("Pared") || collision.gameObject.layer == LayerMask.NameToLayer("Block"))
+        //{
             Destroy(gameObject);
-        }
+        //}
     }
 }
