@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4446898867505262854
+--- !u!1001 &6590626988003955734
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -11,18 +11,18 @@ PrefabInstance:
     - target: {fileID: 958946070368758412, guid: 93776a9d6751b494384c9384f1ae4fb2, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1863726200222006530, guid: 5c8c84dcb6163914b8b5570bc4e647f6, type: 3}
+      objectReference: {fileID: -8087674160085439956, guid: 5c8c84dcb6163914b8b5570bc4e647f6, type: 3}
     - target: {fileID: 1829778354827712102, guid: 93776a9d6751b494384c9384f1ae4fb2, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: d0760f2e292ae9d47a4696b11dd0ca97, type: 2}
+      objectReference: {fileID: 9100000, guid: 1aaa5aedf81de2c4b83fe4c4a81b25e9, type: 2}
     - target: {fileID: 2360946900357019922, guid: 93776a9d6751b494384c9384f1ae4fb2, type: 3}
       propertyPath: m_Name
-      value: Alien2 Variant
+      value: Alien4 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2360946900357019922, guid: 93776a9d6751b494384c9384f1ae4fb2, type: 3}
       propertyPath: m_TagString
-      value: Enemy5
+      value: Enemy2
       objectReference: {fileID: 0}
     - target: {fileID: 7140737404822538094, guid: 93776a9d6751b494384c9384f1ae4fb2, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
@@ -115,25 +115,5 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2360946900357019922, guid: 93776a9d6751b494384c9384f1ae4fb2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5160842982513703841}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93776a9d6751b494384c9384f1ae4fb2, type: 3}
---- !u!1 &2122684472018733076 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2360946900357019922, guid: 93776a9d6751b494384c9384f1ae4fb2, type: 3}
-  m_PrefabInstance: {fileID: 4446898867505262854}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5160842982513703841
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2122684472018733076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48622ed71a0c03d42b2982b8d60fb4cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyManager
