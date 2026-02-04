@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        PlayerPrefs.SetInt("Direccion", 1);
     }
 
     void Update()
