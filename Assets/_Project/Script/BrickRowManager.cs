@@ -3,10 +3,6 @@ using UnityEngine.UI;
 
 public class BrickRowManager : MonoBehaviour
 {
-    [SerializeField] GameObject[] bricks;
-
-    private static int totalBricks = 0;
-
     void Start()
     {
         Invoke("DisableLayoutGroup", 0.5f);
