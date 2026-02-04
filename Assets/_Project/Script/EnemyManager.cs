@@ -29,7 +29,7 @@ public class EnemyManager : MonoBehaviour
         {
             if (PlayerPrefs.GetInt("Direccion") == 1)
             {
-                PlayerPrefs.SetInt("Direccion", 0);
+                PlayerPrefs.SetInt("Direccion", -1);
             }
             else
             {
