@@ -1,44 +1,42 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
     Animator animator;
+    private static float lastDirectionChangeTime = 0f;
+    public static int direccion = 1;
 
     void Start()
     {
         animator = GetComponent<Animator>();
     }
 
-    void Update()
-    {
-
-    }
-
     void OnCollisionEnter2D(Collision2D collision)
     {
-        float duracion = GetClipLengh("Explotion");
-        animator.SetTrigger("exp");
-        Destroy(gameObject, duracion);
+        if (collision.gameObject.CompareTag("Attack"))
+        {
+            float duracion = GetClipLengh("Explotion");
+            animator.SetTrigger("exp");
+            Destroy(gameObject, duracion);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Trigg");
-        if (collision.IsTouchingLayers(LayerMask.GetMask("Pared")))
+        if (collision.gameObject.CompareTag("Pared"))
         {
-            if (PlayerPrefs.GetInt("Direccion") == 1)
+            if (Time.time - lastDirectionChangeTime > 2f)
             {
-                PlayerPrefs.SetInt("Direccion", -1);
-            }
-            else
-            {
-                PlayerPrefs.SetInt("Direccion", 1);
+                lastDirectionChangeTime = Time.time;
+                StartCoroutine(SmallPause());
+                direccion *= -1;
             }
         }
     }
 
-    public float GetClipLengh(String name)
+    public float GetClipLengh(string name)
     {
         AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
         foreach (AnimationClip clip in clips)
@@ -47,5 +45,10 @@ public class EnemyManager : MonoBehaviour
                 return clip.length;
         }
         return 0f;
+    }
+
+    IEnumerator SmallPause()
+    {
+        yield return new WaitForSecondsRealtime(5f);
     }
 }

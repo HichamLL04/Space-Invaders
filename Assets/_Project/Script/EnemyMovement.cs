@@ -8,10 +8,12 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] float cooldown = 1f;
     [SerializeField] float velocidad = 0.6875f;
     private bool moviendo = false;
+    GameObject moveBox;
 
     void Start()
     {
         enemies = GetEnemies();
+        moveBox = gameObject;
     }
 
     void Update()
@@ -26,11 +28,14 @@ public class EnemyMovement : MonoBehaviour
     {
         moviendo = true;
         
-        int direccion = PlayerPrefs.GetInt("Direccion", 1);
+        int direccion = EnemyManager.direccion;
+        /*
         foreach (EnemyManager enemy in enemies)
         {
             enemy.transform.Translate(Vector3.right * velocidad * direccion);
         }
+        */
+        moveBox.transform.Translate(Vector3.right * velocidad * direccion);
         
         yield return new WaitForSeconds(cooldown);
         
