@@ -7,6 +7,7 @@ public class EnemyManager : MonoBehaviour
     Animator animator;
     private static float lastDirectionChangeTime = 0f;
     public static int direccion = 1;
+    public static bool cambioDireccion = false;
 
     void Start()
     {
@@ -30,8 +31,8 @@ public class EnemyManager : MonoBehaviour
             if (Time.time - lastDirectionChangeTime > 2f)
             {
                 lastDirectionChangeTime = Time.time;
-                StartCoroutine(SmallPause());
                 direccion *= -1;
+                cambioDireccion = true;
             }
         }
     }
@@ -45,10 +46,5 @@ public class EnemyManager : MonoBehaviour
                 return clip.length;
         }
         return 0f;
-    }
-
-    IEnumerator SmallPause()
-    {
-        yield return new WaitForSecondsRealtime(5f);
     }
 }
