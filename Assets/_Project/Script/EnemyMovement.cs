@@ -12,11 +12,12 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] float probabilidadAtaque = 0.02f;
     private bool moviendo = false;
     GameObject moveBox;
+    GameManager gameManager;
 
     void Start()
     {
-        enemies = GetEnemies();
         moveBox = gameObject;
+        gameManager = FindFirstObjectByType<GameManager>();
     }
 
     void Update()
@@ -30,7 +31,7 @@ public class EnemyMovement : MonoBehaviour
     IEnumerator Move()
     {
         moviendo = true;
-        
+
         int direccion = EnemyManager.direccion;
 
         if (!EnemyManager.cambioDireccion)
@@ -51,23 +52,13 @@ public class EnemyMovement : MonoBehaviour
 
     void EnemyAttack()
     {
-        foreach (EnemyManager enemy in enemies)
-    {
-        if (UnityEngine.Random.value < probabilidadAtaque)
+        foreach (EnemyManager enemy in gameManager.GetEnemies())
         {
-            enemy.Disparar();
+            if (UnityEngine.Random.value < probabilidadAtaque)
+            {
+                enemy.Disparar();
+            }
         }
-    }
-    }
-
-    EnemyManager[] GetEnemies()
-    {
-        return FindObjectsByType<EnemyManager>(FindObjectsSortMode.None);
-    }
-
-    public void SetEnemy()
-    {
-        enemies = GetEnemies();
     }
 
     IEnumerator Pause(float cooldown)
