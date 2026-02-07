@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    [SerializeField] GameObject[] prefabAtack;
+    [SerializeField] GameObject prefabAtack;
     [SerializeField] AudioClip attackClip;
 
     GameManager gameManager;
@@ -60,13 +60,9 @@ public class EnemyManager : MonoBehaviour
 
     public void Disparar()
     {
-        GameObject ataque = Instantiate(prefabAtack[GetRandom()], transform.position, Quaternion.identity);
+        GameObject ataque = Instantiate(prefabAtack, transform.position, Quaternion.identity);
         ataque.transform.parent = transform;
+        ataque.transform.SetParent(null);
         gameManager.PlayOnce(attackClip);
-    }
-
-    int GetRandom()
-    {
-        return UnityEngine.Random.Range(0,2);
     }
 }
