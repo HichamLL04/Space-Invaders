@@ -30,6 +30,7 @@ public class EnemyManager : MonoBehaviour
             float duracion = GetClipLengh("Explotion");
             animator.SetTrigger("exp");
             gameManager.SetEnemy();
+            gameManager.IncreaseScore(gameObject.tag);
             Destroy(gameObject, duracion);
         }
     }

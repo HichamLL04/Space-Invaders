@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyManager
   prefabAtack: {fileID: 2465926093123766349, guid: 472dc7fa5c2a11f45b28358fd54c965e, type: 3}
-  attackClip: {fileID: 8300000, guid: 3e199a0d27d61ad438eff9c95e9ad1e2, type: 3}
+  attackClip: {fileID: 8300000, guid: dd3fcf5ba9b82d140bfa4304ac227306, type: 3}
 --- !u!50 &7996179394507806415
 Rigidbody2D:
   serializedVersion: 5

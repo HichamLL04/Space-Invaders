@@ -4,11 +4,13 @@ public class GameManager : MonoBehaviour
 {
     AudioSource audioSource;
     public static EnemyManager[] enemies;
+    PointManager pointManager;
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
         enemies = GetEnemies();
+        pointManager = GetComponent<PointManager>();
     }
 
     void Update()
@@ -29,5 +31,10 @@ public class GameManager : MonoBehaviour
     public void SetEnemy()
     {
         enemies = GetEnemies();
+    }
+
+    public void IncreaseScore(string tag)
+    {
+        pointManager.IncreaseScore(tag);
     }
 }
