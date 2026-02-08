@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : MonoBehaviour
 {
@@ -6,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static EnemyManager[] enemies;
     PointManager pointManager;
     LifeManager lifeManager;
+    public static float score;
 
     void Start()
     {
@@ -42,7 +45,13 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        
+        Debug.Log("GameOver");
+        score = pointManager.GetScore();
+        if(PlayerPrefs.GetFloat("HScore", 0) == 0 || score > PlayerPrefs.GetFloat("HScore", 0))
+        {
+            PlayerPrefs.SetFloat("HScore", score);
+        }
+        SceneManager.LoadScene("GameOver");
     }
 
     public void RestarVida()

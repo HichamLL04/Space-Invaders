@@ -20,7 +20,7 @@ public class LifeManager : MonoBehaviour
 
     public void RestarVida()
     {
-        if (numVidas >= 0)
+        if (numVidas >= 1)
         {
             vidas[numVidas].GetComponent<SpriteRenderer>().enabled = false;
             numVidas -= 1;
@@ -28,6 +28,7 @@ public class LifeManager : MonoBehaviour
         else
         {
             gameManager.GameOver();
+            Debug.Log("GameOver life");
         }
     }
 }
