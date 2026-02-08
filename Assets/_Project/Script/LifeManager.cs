@@ -1,16 +1,16 @@
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class LifeManager : MonoBehaviour
 {
     [SerializeField] GameObject[] vidas;
     int numVidas = 2;
     GameManager gameManager;
-    BrickRowManager brickRowManager;
+    [SerializeField] HorizontalLayoutGroup layoutGroup;
     void Start()
     {
         gameManager = FindFirstObjectByType<GameManager>();
-        brickRowManager = FindFirstObjectByType<BrickRowManager>();
-        brickRowManager.Invoke("DisableLayoutGroup", 0.5f);
     }
 
     void Update()
@@ -22,13 +22,12 @@ public class LifeManager : MonoBehaviour
     {
         if (numVidas >= 0)
         {
-            Destroy(vidas[numVidas]);
+            vidas[numVidas].GetComponent<SpriteRenderer>().enabled = false;
             numVidas -= 1;
         }
         else
         {
             gameManager.GameOver();
         }
-
     }
 }
