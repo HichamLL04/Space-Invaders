@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 2333303728452464978}
   - component: {fileID: 2588740994374039451}
   - component: {fileID: 5450514363855805226}
+  - component: {fileID: 3116156031823516775}
+  - component: {fileID: 1730413582571228337}
   m_Layer: 6
   m_Name: Escudo
   m_TagString: Block
@@ -138,3 +140,37 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.8666667, y: 0.4}
   m_EdgeRadius: 0
+--- !u!114 &3116156031823516775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3692938320225570108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f13ceca49c27cb04f851ed6082e12da6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BrickManager
+--- !u!95 &1730413582571228337
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3692938320225570108}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b3334a9d07a3e2045b587950cf876af6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
