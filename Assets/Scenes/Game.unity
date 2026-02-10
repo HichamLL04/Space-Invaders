@@ -4199,6 +4199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   gameLoop: {fileID: 8300000, guid: 1b0ff62a82782e44b96a05684f85e8bb, type: 3}
+  gameOver: {fileID: 8300000, guid: cf264ffb65b8df947b0ec71207dc86ad, type: 3}
 --- !u!114 &920698465
 MonoBehaviour:
   m_ObjectHideFlags: 0

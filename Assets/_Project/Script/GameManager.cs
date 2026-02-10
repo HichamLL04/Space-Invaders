@@ -5,6 +5,7 @@ using UnityEngine.SocialPlatforms.Impl;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] AudioClip gameLoop;
+    [SerializeField] AudioClip gameOver;
     AudioSource audioSource;
     public static EnemyManager[] enemies;
     PointManager pointManager;
@@ -33,13 +34,18 @@ public class GameManager : MonoBehaviour
         string sceneName = SceneManager.GetActiveScene().name;
         if (sceneName == "Game" && actualSceneName != "Game")
         {
-            PlayOnGame();
+            PlayOnGame(gameLoop);
             actualSceneName = "Game";
         }
+        if (sceneName == "GameOver" && actualSceneName != "GameOver")
+        {
+            PlayOnGame(gameOver);
+            actualSceneName = "GameOver";
+        }
     }
-    void PlayOnGame()
+    void PlayOnGame(AudioClip audioClip)
     {
-        audioSource.clip = gameLoop;
+        audioSource.clip = audioClip;
         audioSource.Play();
     }
 
