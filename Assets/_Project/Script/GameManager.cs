@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
@@ -6,13 +7,15 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] AudioClip gameLoop;
     [SerializeField] AudioClip gameOver;
+    [SerializeField] GameObject spawn;
+    [SerializeField] GameObject ovni;
     AudioSource audioSource;
     public static EnemyManager[] enemies;
     PointManager pointManager;
     LifeManager lifeManager;
     public static float score;
     string actualSceneName = "Start";
-
+    bool isCounting = false;
 
     void Start()
     {
@@ -27,6 +30,11 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         LoopManager();
+        if (!isCounting)
+        {
+            StartCoroutine(Counter());
+            PopUpOvni();
+        }
     }
 
     void LoopManager()
@@ -83,5 +91,18 @@ public class GameManager : MonoBehaviour
     public void RestarVida()
     {
         lifeManager.RestarVida();
+    }
+
+    public void PopUpOvni()
+    {
+        Instantiate(ovni, spawn.transform);
+        isCounting = false;
+    }
+
+    IEnumerator Counter()
+    {
+        Debug.Log("contando");
+        isCounting = true;
+        yield return new WaitForSecondsRealtime(5f);
     }
 }
