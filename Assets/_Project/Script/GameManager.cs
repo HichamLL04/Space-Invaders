@@ -24,16 +24,17 @@ public class GameManager : MonoBehaviour
         pointManager = GetComponent<PointManager>();
         lifeManager = GetComponent<LifeManager>();
         audioSource.loop = true;
-        
+
     }
 
     void Update()
     {
         LoopManager();
+
         if (!isCounting)
         {
+            isCounting = true;
             StartCoroutine(Counter());
-            PopUpOvni();
         }
     }
 
@@ -95,14 +96,15 @@ public class GameManager : MonoBehaviour
 
     public void PopUpOvni()
     {
-        Instantiate(ovni, spawn.transform);
-        isCounting = false;
+        GameObject newOvni = Instantiate(ovni, spawn.transform);
+        newOvni.transform.localPosition = Vector3.zero;
     }
 
     IEnumerator Counter()
     {
-        Debug.Log("contando");
-        isCounting = true;
-        yield return new WaitForSecondsRealtime(5f);
+                PopUpOvni();
+
+        yield return new WaitForSecondsRealtime(21f);
+        isCounting = false;
     }
 }
