@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2475481378778966295}
   - component: {fileID: 5083298414163755190}
   - component: {fileID: 5786450730827300615}
+  - component: {fileID: 3067577970225946100}
   m_Layer: 0
   m_Name: SpaceInvaders
   m_TagString: Enemy5
@@ -212,4 +213,17 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 5
+  m_Constraints: 6
+--- !u!114 &3067577970225946100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359320474677133229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4b2a8bda4d012f47945b4c599a04447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OvniManager
+  speed: 1
