@@ -102,9 +102,8 @@ public class GameManager : MonoBehaviour
 
     IEnumerator Counter()
     {
-                PopUpOvni();
-
-        yield return new WaitForSecondsRealtime(21f);
+        yield return new WaitForSeconds(21f);
+        PopUpOvni();
         isCounting = false;
     }
 }
