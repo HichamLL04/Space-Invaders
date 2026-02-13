@@ -4,7 +4,6 @@ public class OvniManager : MonoBehaviour
 {
     [SerializeField] float speed = 5;
     Rigidbody2D myRb;
-    int exit = 0;
     void Start()
     {
         myRb = GetComponent<Rigidbody2D>();
@@ -18,14 +17,9 @@ public class OvniManager : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Pared"))
+        if (collision.CompareTag("Fondo"))
         {
-            exit += 1;
-            Debug.Log("Sale");
-            if (exit == 2)
-            {
-                Destroy(gameObject);
-            }
+            Destroy(gameObject);
         }
     }
 

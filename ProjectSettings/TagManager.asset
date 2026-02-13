@@ -13,6 +13,7 @@ TagManager:
   - Enemy2
   - Enemy1
   - EnemyAttack
+  - Ovni
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - Attack
   - Enemy
   - EnemyAttack
-  - 
+  - Ovni
   - 
   - 
   - 

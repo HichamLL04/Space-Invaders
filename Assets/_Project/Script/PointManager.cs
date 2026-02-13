@@ -32,7 +32,7 @@ public class PointManager : MonoBehaviour
                 score += 50;
                 break;
             case "Ovni":
-                score += 100; // tal vez haga un random de 100 a 300
+                score += 100;
                 break;
         }
         UpdateScoreText();

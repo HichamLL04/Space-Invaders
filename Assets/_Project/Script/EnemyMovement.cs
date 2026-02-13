@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    EnemyManager[] enemies;
     [SerializeField] float cooldown = 1f;
     [SerializeField] float velocidad = 0.6875f;
     [SerializeField] float caida = 1;
@@ -57,13 +56,13 @@ public class EnemyMovement : MonoBehaviour
             if (UnityEngine.Random.value < probabilidadAtaque)
             {
                 enemy.Disparar();
+                return;
             }
         }
     }
 
     IEnumerator Pause(float cooldown)
     {
-        Debug.Log("cool");
         yield return new WaitForSecondsRealtime(cooldown);
     }
 }
