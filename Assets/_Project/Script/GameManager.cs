@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     LifeManager lifeManager;
     public static float score;
     string actualSceneName = "Start";
-    bool isCounting = false;
+    public static bool isCounting = false;
 
     void Start()
     {
@@ -104,6 +104,5 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(21f);
         PopUpOvni();
-        isCounting = false;
     }
 }

@@ -19,6 +19,7 @@ public class OvniManager : MonoBehaviour
     {
         if (collision.CompareTag("Fondo"))
         {
+            GameManager.isCounting = false;
             Destroy(gameObject);
         }
     }
