@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
     public static bool isCounting = false;
     public static int wave = 1;
     string actualSceneName = "Start";
+    float contadorEnemigos = 0;
 
 
     void Start()
@@ -75,16 +77,24 @@ public class GameManager : MonoBehaviour
 
     public EnemyManager[] GetEnemies()
     {
-        return FindObjectsByType<EnemyManager>(FindObjectsSortMode.None);
+        enemies = FindObjectsByType<EnemyManager>(FindObjectsSortMode.None);
+        return enemies;
     }
-
     public void SetEnemy()
     {
-        enemies = GetEnemies();
-        if (enemies.Count() == 0)
+        GetEnemies();
+        Debug.Log(GetEnemyCount());
+        if (enemies.Count() == 1)
         {
+            wave++;
             NextWave();
         }
+    }
+
+    public int GetEnemyCount()
+    {
+        GetEnemies();
+        return enemies.Count();
     }
 
     public void IncreaseScore(string tag)

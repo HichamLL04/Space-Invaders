@@ -66,7 +66,7 @@ public class EnemyBoxManager : MonoBehaviour
 
     void GenerateLine(int idAlien, int idRow)
     {
-        for (int i = 0; i < 9; i++)
+        for (int i = 0; i < 1; i++)
         {
             Instantiate(alien[idAlien], horizontalLayoutGroup[idRow].transform);
         }
