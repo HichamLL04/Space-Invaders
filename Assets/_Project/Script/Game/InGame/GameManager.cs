@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
@@ -9,13 +10,18 @@ public class GameManager : MonoBehaviour
     [SerializeField] AudioClip gameOver;
     [SerializeField] GameObject spawn;
     [SerializeField] GameObject ovni;
+    [SerializeField] float velocidad = 1f;
     AudioSource audioSource;
-    public static EnemyManager[] enemies;
     PointManager pointManager;
     LifeManager lifeManager;
+    EnemyBoxManager enemyBoxManager;
+    EnemyMovement enemyMovement;
+    public static EnemyManager[] enemies;
     public static float score;
-    string actualSceneName = "Start";
     public static bool isCounting = false;
+    public static int wave = 1;
+    string actualSceneName = "Start";
+    
 
     void Start()
     {
@@ -23,8 +29,10 @@ public class GameManager : MonoBehaviour
         enemies = GetEnemies();
         pointManager = GetComponent<PointManager>();
         lifeManager = GetComponent<LifeManager>();
+        enemyBoxManager = GetComponent<EnemyBoxManager>();
+        enemyMovement = FindFirstObjectByType<EnemyMovement>();
         audioSource.loop = true;
-
+        NextWave();
     }
 
     void Update()
@@ -71,6 +79,10 @@ public class GameManager : MonoBehaviour
     public void SetEnemy()
     {
         enemies = GetEnemies();
+        if(enemies.Count() == 0)
+        {
+            NextWave();
+        }
     }
 
     public void IncreaseScore(string tag)
@@ -98,6 +110,21 @@ public class GameManager : MonoBehaviour
     {
         GameObject newOvni = Instantiate(ovni, spawn.transform);
         newOvni.transform.localPosition = Vector3.zero;
+    }
+
+    public float GetVelocidad()
+    {
+        return velocidad;
+    }
+
+    void NextWave()
+    {
+        if(wave > 1)
+        {
+            enemyMovement.SetLocation();
+            enemyMovement.SetVelocidad(0.5f);
+        }
+        enemyBoxManager.GenerateEnemy(wave);
     }
 
     IEnumerator Counter()

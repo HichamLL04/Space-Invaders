@@ -6,17 +6,19 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] float cooldown = 1f;
-    [SerializeField] float velocidad = 0.6875f;
+    [SerializeField] float velocidad = 1;
     [SerializeField] float caida = 1;
     [SerializeField] float probabilidadAtaque = 0.02f;
     private bool moviendo = false;
     GameObject moveBox;
     GameManager gameManager;
+    Vector3 posicionInicial;
 
     void Start()
     {
         moveBox = gameObject;
         gameManager = FindFirstObjectByType<GameManager>();
+        posicionInicial = gameObject.transform.position;
     }
 
     void Update()
@@ -61,8 +63,19 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
+    public void SetLocation()
+    {
+        gameObject.transform.position = posicionInicial;
+    }
+
+    public void SetVelocidad(float nuevaVelocidad)
+    {
+        velocidad += nuevaVelocidad;
+    }
+
     IEnumerator Pause(float cooldown)
     {
         yield return new WaitForSecondsRealtime(cooldown);
     }
+
 }

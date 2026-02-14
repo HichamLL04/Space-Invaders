@@ -28,10 +28,10 @@ public class BrickManager : MonoBehaviour
                     break;
                 case 3:
                     animator.SetTrigger("ThirdHit");
-                    Destroy(gameObject, 0.1f);
+                    gameObject.SetActive(false);
                     break;
                 default:
-                    Destroy(gameObject, 0.2f);
+                    gameObject.SetActive(false);
                     break;
             }
         }

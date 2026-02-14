@@ -7,7 +7,6 @@ public class LifeManager : MonoBehaviour
     [SerializeField] GameObject[] vidas;
     int numVidas = 2;
     GameManager gameManager;
-    [SerializeField] HorizontalLayoutGroup layoutGroup;
     void Start()
     {
         gameManager = FindFirstObjectByType<GameManager>();

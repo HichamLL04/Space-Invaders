@@ -1,11 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BrickRowManager : MonoBehaviour
+public class RowManager : MonoBehaviour
 {
     void Start()
     {
-        Invoke("DisableLayoutGroup", 0.5f);
+        
     }
 
     public void DisableLayoutGroup()
