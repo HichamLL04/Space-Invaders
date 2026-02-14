@@ -16,12 +16,13 @@ public class GameManager : MonoBehaviour
     LifeManager lifeManager;
     EnemyBoxManager enemyBoxManager;
     EnemyMovement enemyMovement;
+    BrickManager[] brickManagers;
     public static EnemyManager[] enemies;
     public static float score;
     public static bool isCounting = false;
     public static int wave = 1;
     string actualSceneName = "Start";
-    
+
 
     void Start()
     {
@@ -31,6 +32,7 @@ public class GameManager : MonoBehaviour
         lifeManager = GetComponent<LifeManager>();
         enemyBoxManager = GetComponent<EnemyBoxManager>();
         enemyMovement = FindFirstObjectByType<EnemyMovement>();
+        brickManagers = FindObjectsByType<BrickManager>(FindObjectsSortMode.None);
         audioSource.loop = true;
         NextWave();
     }
@@ -79,7 +81,7 @@ public class GameManager : MonoBehaviour
     public void SetEnemy()
     {
         enemies = GetEnemies();
-        if(enemies.Count() == 0)
+        if (enemies.Count() == 0)
         {
             NextWave();
         }
@@ -119,8 +121,13 @@ public class GameManager : MonoBehaviour
 
     void NextWave()
     {
-        if(wave > 1)
+        if (wave > 1)
         {
+            foreach (BrickManager brick in brickManagers)
+            {
+                brick.EnableBrick();
+            }
+
             enemyMovement.SetLocation();
             enemyMovement.SetVelocidad(0.5f);
         }
@@ -131,5 +138,16 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(21f);
         PopUpOvni();
+    }
+
+    public float GetClipLengh(string name, Animator animator)
+    {
+        AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
+        foreach (AnimationClip clip in clips)
+        {
+            if (clip.name == name)
+                return clip.length;
+        }
+        return 0f;
     }
 }
