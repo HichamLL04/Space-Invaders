@@ -27,7 +27,7 @@ public class EnemyManager : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Attack"))
         {
-            float duracion = GetClipLengh("Explotion");
+            float duracion = gameManager.GetClipLengh("Explotion", animator);
             animator.SetTrigger("exp");
             gameManager.SetEnemy();
             gameManager.IncreaseScore(gameObject.tag);
@@ -46,17 +46,6 @@ public class EnemyManager : MonoBehaviour
                 cambioDireccion = true;
             }
         }
-    }
-
-    public float GetClipLengh(string name)
-    {
-        AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
-        foreach (AnimationClip clip in clips)
-        {
-            if (clip.name == name)
-                return clip.length;
-        }
-        return 0f;
     }
 
     public void Disparar()
