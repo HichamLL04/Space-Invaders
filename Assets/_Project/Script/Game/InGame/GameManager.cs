@@ -150,6 +150,7 @@ public class GameManager : MonoBehaviour
         }
 
         enemyMovement.ContVelocidad(false);
+        enemyMovement.SetLocation();
         textMeshProUGUI.text = "STARTING WAVE " + wave;
         textMeshProUGUI.enabled = true;
         yield return new WaitForSeconds(3);
