@@ -5,6 +5,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.InputSystem;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +16,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject ovni;
     [SerializeField] TextMeshProUGUI textMeshProUGUI;
     [SerializeField] float velocidad = 1f;
+    [SerializeField] GameObject menuPausa;
+    [SerializeField] GameObject inGame;
+    [SerializeField] CanvasGroup inGameCanvasGroup;
     AudioSource audioSource;
     PointManager pointManager;
     LifeManager lifeManager;
@@ -25,6 +30,9 @@ public class GameManager : MonoBehaviour
     public static bool isCounting = false;
     public static int wave = 1;
     string actualSceneName = "Start";
+    bool isPaused = false;
+    bool isTogglingPause = false;
+
 
 
     void Start()
@@ -175,5 +183,28 @@ public class GameManager : MonoBehaviour
                 return clip.length;
         }
         return 0f;
+    }
+
+    public void TogglePause()
+    {
+        if (isTogglingPause) return;
+
+        isTogglingPause = true;
+        isPaused = !isPaused;
+
+        if (isPaused)
+        {
+            menuPausa.SetActive(true);
+            Time.timeScale = 0f;
+            inGame.SetActive(false);
+        }
+        else
+        {
+            menuPausa.SetActive(false);
+            Time.timeScale = 1f;
+            inGame.SetActive(true);
+        }
+
+        isTogglingPause = false;
     }
 }

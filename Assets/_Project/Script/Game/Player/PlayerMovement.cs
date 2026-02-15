@@ -51,4 +51,9 @@ public class PlayerMovement : MonoBehaviour
             cooldownRestante = tiempoAtaque;
         }
     }
+
+    public void Escape()
+    {
+        gameManager.TogglePause();
+    }
 }
