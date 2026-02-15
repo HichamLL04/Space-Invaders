@@ -13,6 +13,7 @@ public class EnemyMovement : MonoBehaviour
     GameObject moveBox;
     GameManager gameManager;
     Vector3 posicionInicial;
+    float velOriginal = 0;
 
     void Start()
     {
@@ -71,6 +72,19 @@ public class EnemyMovement : MonoBehaviour
     public void SetVelocidad(float nuevaVelocidad)
     {
         velocidad += nuevaVelocidad;
+    }
+
+    public void ContVelocidad(bool activar)
+    {
+        if (!activar)
+        {
+            velOriginal = velocidad;
+            velocidad = 0;
+        }
+        else
+        {
+            velocidad = velOriginal;
+        }
     }
 
     IEnumerator Pause(float cooldown)

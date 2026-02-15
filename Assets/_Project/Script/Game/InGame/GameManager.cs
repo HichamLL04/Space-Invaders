@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Linq;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] AudioClip gameOver;
     [SerializeField] GameObject spawn;
     [SerializeField] GameObject ovni;
+    [SerializeField] TextMeshProUGUI textMeshProUGUI;
     [SerializeField] float velocidad = 1f;
     AudioSource audioSource;
     PointManager pointManager;
@@ -27,6 +29,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        textMeshProUGUI.enabled = false;
         audioSource = GetComponent<AudioSource>();
         enemies = GetEnemies();
         pointManager = GetComponent<PointManager>();
@@ -146,7 +149,14 @@ public class GameManager : MonoBehaviour
             enemyMovement.SetVelocidad(0.5f);
         }
 
+        enemyMovement.ContVelocidad(false);
+        textMeshProUGUI.text = "STARTING WAVE " + wave;
+        textMeshProUGUI.enabled = true;
+        yield return new WaitForSeconds(3);
+
         enemyBoxManager.GenerateEnemy(wave);
+        enemyMovement.ContVelocidad(true);
+        textMeshProUGUI.enabled = false;
     }
 
     IEnumerator GenerateOvni()

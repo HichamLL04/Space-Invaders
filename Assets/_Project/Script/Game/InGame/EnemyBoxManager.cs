@@ -19,22 +19,6 @@ public class EnemyBoxManager : MonoBehaviour
 
     }
 
-    void EnableLayoutGroup()
-    {
-        foreach (HorizontalLayoutGroup group in horizontalLayoutGroup)
-        {
-            group.GetComponent<RowManager>().EnableLayoutGroup();
-        }
-    }
-
-    void DisableLayoutGroup()
-    {
-        foreach (HorizontalLayoutGroup group in horizontalLayoutGroup)
-        {
-            group.GetComponent<RowManager>().DisableLayoutGroup();
-        }
-    }
-
     public void GenerateEnemy(int wave)
     {
         EnableLayoutGroup();
@@ -65,16 +49,20 @@ public class EnemyBoxManager : MonoBehaviour
         DisableLayoutGroup();
     }
 
-    IEnumerator DisableLayoutGroupDelayed()
+    void EnableLayoutGroup()
     {
-        yield return null;
-        DisableLayoutGroup();
+        foreach (HorizontalLayoutGroup group in horizontalLayoutGroup)
+        {
+            group.GetComponent<RowManager>().EnableLayoutGroup();
+        }
     }
 
-    IEnumerator EnableLayoutGroupDelayed()
+    void DisableLayoutGroup()
     {
-        yield return null;
-        EnableLayoutGroup();
+        foreach (HorizontalLayoutGroup group in horizontalLayoutGroup)
+        {
+            group.GetComponent<RowManager>().DisableLayoutGroup();
+        }
     }
 
     void GenerateLine(int idAlien, int idRow)
