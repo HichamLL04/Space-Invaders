@@ -3,26 +3,21 @@ using UnityEngine.UI;
 
 public class RowManager : MonoBehaviour
 {
+    RectTransform rectTransform;
+    
     void Start()
     {
-        
+        rectTransform = GetComponent<RectTransform>();
     }
-
-    public void DisableLayoutGroup()
-    {
-        var layoutGroup = GetComponent<HorizontalLayoutGroup>();
-        if (layoutGroup != null)
-        {
-            layoutGroup.enabled = false;
-        }
-    }
-
+    
     public void EnableLayoutGroup()
     {
-        var layoutGroup = GetComponent<HorizontalLayoutGroup>();
-        if (layoutGroup != null)
-        {
-            layoutGroup.enabled = true;
-        }
+        GetComponent<HorizontalLayoutGroup>().enabled = true;
+        rectTransform.anchoredPosition = Vector2.zero;
+    }
+    
+    public void DisableLayoutGroup()
+    {
+        GetComponent<HorizontalLayoutGroup>().enabled = false;
     }
 }

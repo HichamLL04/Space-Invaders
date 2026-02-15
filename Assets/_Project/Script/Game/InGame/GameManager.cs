@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour
     public static bool isCounting = false;
     public static int wave = 1;
     string actualSceneName = "Start";
-    float contadorEnemigos = 0;
 
 
     void Start()
@@ -46,7 +45,7 @@ public class GameManager : MonoBehaviour
         if (!isCounting)
         {
             isCounting = true;
-            StartCoroutine(Counter());
+            StartCoroutine(GenerateOvni());
         }
     }
 
@@ -131,20 +130,26 @@ public class GameManager : MonoBehaviour
 
     void NextWave()
     {
+        StartCoroutine(GenerateEnemy());
+    }
+
+    IEnumerator GenerateEnemy()
+    {
+        yield return new WaitForSeconds(1);
+
         if (wave > 1)
         {
             foreach (BrickManager brick in brickManagers)
             {
                 brick.EnableBrick();
             }
-
-            enemyMovement.SetLocation();
             enemyMovement.SetVelocidad(0.5f);
         }
+
         enemyBoxManager.GenerateEnemy(wave);
     }
 
-    IEnumerator Counter()
+    IEnumerator GenerateOvni()
     {
         yield return new WaitForSeconds(21f);
         PopUpOvni();
