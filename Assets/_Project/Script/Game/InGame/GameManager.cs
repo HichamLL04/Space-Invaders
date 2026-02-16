@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     public static bool isCounting = false;
     public static int wave = 1;
     string actualSceneName = "Start";
+    string currentAudioScene = "";
     bool isPaused = false;
     bool isTogglingPause = false;
 
@@ -37,7 +38,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        textMeshProUGUI.enabled = false;
+        if (textMeshProUGUI != null)
+            textMeshProUGUI.enabled = false;
+        
         audioSource = GetComponent<AudioSource>();
         enemies = GetEnemies();
         pointManager = GetComponent<PointManager>();
@@ -45,7 +48,10 @@ public class GameManager : MonoBehaviour
         enemyBoxManager = GetComponent<EnemyBoxManager>();
         enemyMovement = FindFirstObjectByType<EnemyMovement>();
         brickManagers = FindObjectsByType<BrickManager>(FindObjectsSortMode.None);
-        audioSource.loop = true;
+        
+        if (audioSource != null)
+            audioSource.loop = true;
+        
         NextWave();
     }
 
@@ -63,25 +69,38 @@ public class GameManager : MonoBehaviour
     void LoopManager()
     {
         string sceneName = SceneManager.GetActiveScene().name;
-        if (sceneName == "Game" && actualSceneName != "Game")
+        
+        if (sceneName != currentAudioScene)
         {
-            PlayOnGame(gameLoop);
-            actualSceneName = "Game";
+            currentAudioScene = sceneName;
+            
+            if (sceneName == "Game" || sceneName == "HomeScreen" || sceneName == "SettingScreen")
+            {
+                PlayOnGame(gameLoop);
+            }
+            else if (sceneName == "GameOver")
+            {
+                PlayOnGame(gameOver);
+            }
         }
-        if (sceneName == "GameOver" && actualSceneName != "GameOver")
-        {
-            PlayOnGame(gameOver);
-            actualSceneName = "GameOver";
-        }
+        
+        actualSceneName = sceneName;
     }
+
     void PlayOnGame(AudioClip audioClip)
     {
+        if (audioSource == null || audioClip == null)
+            return;
+        
         audioSource.clip = audioClip;
         audioSource.Play();
     }
 
     public void PlayOnce(AudioClip audioClip)
     {
+        if (audioSource == null || audioClip == null)
+            return;
+        
         audioSource.PlayOneShot(audioClip);
     }
 
@@ -90,11 +109,11 @@ public class GameManager : MonoBehaviour
         enemies = FindObjectsByType<EnemyManager>(FindObjectsSortMode.None);
         return enemies;
     }
+
     public void SetEnemy()
     {
         GetEnemies();
-        Debug.Log(GetEnemyCount());
-        if (enemies.Count() == 1)
+        if (enemies != null && enemies.Count() == 1)
         {
             wave++;
             NextWave();
@@ -104,34 +123,41 @@ public class GameManager : MonoBehaviour
     public int GetEnemyCount()
     {
         GetEnemies();
-        return enemies.Count();
+        return enemies?.Count() ?? 0;
     }
 
     public void IncreaseScore(string tag)
     {
-        pointManager.IncreaseScore(tag);
+        if (pointManager != null)
+            pointManager.IncreaseScore(tag);
     }
 
     public void GameOver()
     {
-        Debug.Log("GameOver");
-        score = pointManager.GetScore();
-        if (PlayerPrefs.GetFloat("HScore", 0) == 0 || score > PlayerPrefs.GetFloat("HScore", 0))
+        if (pointManager != null)
         {
-            PlayerPrefs.SetFloat("HScore", score);
+            score = pointManager.GetScore();
+            if (PlayerPrefs.GetFloat("HScore", 0) == 0 || score > PlayerPrefs.GetFloat("HScore", 0))
+            {
+                PlayerPrefs.SetFloat("HScore", score);
+            }
         }
         SceneManager.LoadScene("GameOver");
     }
 
     public void RestarVida()
     {
-        lifeManager.RestarVida();
+        if (lifeManager != null)
+            lifeManager.RestarVida();
     }
 
     public void PopUpOvni()
     {
-        GameObject newOvni = Instantiate(ovni, spawn.transform);
-        newOvni.transform.localPosition = Vector3.zero;
+        if (ovni != null && spawn != null)
+        {
+            GameObject newOvni = Instantiate(ovni, spawn.transform);
+            newOvni.transform.localPosition = Vector3.zero;
+        }
     }
 
     public float GetVelocidad()
@@ -150,22 +176,41 @@ public class GameManager : MonoBehaviour
 
         if (wave > 1)
         {
-            foreach (BrickManager brick in brickManagers)
+            if (brickManagers != null && brickManagers.Length > 0)
             {
-                brick.EnableBrick();
+                foreach (BrickManager brick in brickManagers)
+                {
+                    if (brick != null)
+                        brick.EnableBrick();
+                }
             }
-            enemyMovement.SetVelocidad(0.5f);
+            
+            if (enemyMovement != null)
+                enemyMovement.SetVelocidad(0.5f);
         }
 
-        enemyMovement.ContVelocidad(false);
-        enemyMovement.SetLocation();
-        textMeshProUGUI.text = "STARTING WAVE " + wave;
-        textMeshProUGUI.enabled = true;
+        if (enemyMovement != null)
+        {
+            enemyMovement.ContVelocidad(false);
+            enemyMovement.SetLocation();
+        }
+        
+        if (textMeshProUGUI != null)
+        {
+            textMeshProUGUI.text = "STARTING WAVE " + wave;
+            textMeshProUGUI.enabled = true;
+        }
+        
         yield return new WaitForSeconds(3);
 
-        enemyBoxManager.GenerateEnemy(wave);
-        enemyMovement.ContVelocidad(true);
-        textMeshProUGUI.enabled = false;
+        if (enemyBoxManager != null)
+            enemyBoxManager.GenerateEnemy(wave);
+        
+        if (enemyMovement != null)
+            enemyMovement.ContVelocidad(true);
+        
+        if (textMeshProUGUI != null)
+            textMeshProUGUI.enabled = false;
     }
 
     IEnumerator GenerateOvni()
@@ -176,6 +221,9 @@ public class GameManager : MonoBehaviour
 
     public float GetClipLengh(string name, Animator animator)
     {
+        if (animator == null)
+            return 0f;
+        
         AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
         foreach (AnimationClip clip in clips)
         {
@@ -187,7 +235,8 @@ public class GameManager : MonoBehaviour
 
     public void TogglePause()
     {
-        if (isTogglingPause) return;
+        if (isTogglingPause || menuPausa == null || inGame == null)
+            return;
 
         isTogglingPause = true;
         isPaused = !isPaused;

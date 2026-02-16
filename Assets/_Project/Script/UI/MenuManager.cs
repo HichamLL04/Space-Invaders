@@ -8,6 +8,7 @@ public class MenuManager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI[] score;
     GameManager gameManager;
+    
     void Start()
     {
         SetScore();
@@ -23,20 +24,28 @@ public class MenuManager : MonoBehaviour
     {
         if (score != null && score.Length >= 2)
         {
-            score[0].text = "Score: " + GameManager.score;
-            score[1].text = "highest Score: " + PlayerPrefs.GetFloat("HScore");
+            score[0].text = "Score: \n" + GameManager.score;
+            score[1].text = "highest Score: \n" + PlayerPrefs.GetFloat("HScore");
         }
     }
 
     public void Exit()
     {
-        Debug.Log("Exit");
         Application.Quit();
     }
 
     public void Return()
     {
-        gameManager.TogglePause();
+        string currentScene = SceneManager.GetActiveScene().name;
+        
+        if (currentScene == "GameOver")
+        {
+            gameManager.TogglePause();
+        }
+        else if (currentScene == "SettingScreen")
+        {
+            SceneManager.LoadScene("Game");
+        }
     }
 
     public void Restart()
@@ -53,5 +62,4 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("SettingScreen");
     }
-
 }
