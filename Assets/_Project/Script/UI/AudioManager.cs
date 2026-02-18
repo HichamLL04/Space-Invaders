@@ -1,11 +1,15 @@
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager instance;
+    [SerializeField] AudioClip gameLoop;
+    [SerializeField] AudioClip gameOver;
 
+    public static AudioManager instance;
     private float masterVolume = 1f;
+    string currentAudioScene = "";
+    AudioSource audioSource;
 
     void Awake()
     {
@@ -18,7 +22,52 @@ public class AudioManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
 
+        audioSource = GetComponent<AudioSource>();
+        audioSource.loop = true;
+
         masterVolume = PlayerPrefs.GetFloat("MasterVolume", 1f);
+        audioSource.volume = masterVolume;
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        LoopManager(scene.name);
+    }
+
+    void LoopManager(string sceneName)
+    {
+        if (sceneName == currentAudioScene)
+            return;
+
+        currentAudioScene = sceneName;
+
+        if (sceneName == "Game" || sceneName == "HomeScreen" || sceneName == "SettingScreen")
+        {
+            PlayAudio(gameLoop);
+        }
+        else if (sceneName == "GameOver")
+        {
+            PlayAudio(gameOver);
+        }
+    }
+
+    void PlayAudio(AudioClip audioClip)
+    {
+        if (audioSource == null || audioClip == null)
+            return;
+
+        if (audioSource.clip == audioClip && audioSource.isPlaying)
+            return;
+
+        audioSource.clip = audioClip;
+        audioSource.Play();
     }
 
     public void SetMasterVolume(float value)
@@ -26,7 +75,6 @@ public class AudioManager : MonoBehaviour
         masterVolume = value;
         PlayerPrefs.SetFloat("MasterVolume", value);
         PlayerPrefs.Save();
-
         UpdateAllAudioSources();
     }
 

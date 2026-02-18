@@ -10,8 +10,7 @@ using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] AudioClip gameLoop;
-    [SerializeField] AudioClip gameOver;
+
     [SerializeField] GameObject spawn;
     [SerializeField] GameObject ovni;
     [SerializeField] TextMeshProUGUI textMeshProUGUI;
@@ -29,8 +28,6 @@ public class GameManager : MonoBehaviour
     public static float score;
     public static bool isCounting = false;
     public static int wave = 1;
-    string actualSceneName = "Start";
-    string currentAudioScene = "";
     bool isPaused = false;
     bool isTogglingPause = false;
 
@@ -57,8 +54,6 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        LoopManager();
-
         if (!isCounting)
         {
             isCounting = true;
@@ -66,35 +61,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void LoopManager()
-    {
-        string sceneName = SceneManager.GetActiveScene().name;
-        
-        if (sceneName != currentAudioScene)
-        {
-            currentAudioScene = sceneName;
-            
-            if (sceneName == "Game" || sceneName == "HomeScreen" || sceneName == "SettingScreen")
-            {
-                PlayOnGame(gameLoop);
-            }
-            else if (sceneName == "GameOver")
-            {
-                PlayOnGame(gameOver);
-            }
-        }
-        
-        actualSceneName = sceneName;
-    }
-
-    void PlayOnGame(AudioClip audioClip)
-    {
-        if (audioSource == null || audioClip == null)
-            return;
-        
-        audioSource.clip = audioClip;
-        audioSource.Play();
-    }
 
     public void PlayOnce(AudioClip audioClip)
     {
