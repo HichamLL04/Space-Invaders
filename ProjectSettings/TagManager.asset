@@ -15,6 +15,7 @@ TagManager:
   - EnemyAttack
   - Ovni
   - Fondo
+  - ParedOut
   layers:
   - Default
   - TransparentFX

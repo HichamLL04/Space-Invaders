@@ -2488,8 +2488,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fe71d4812f3a7c84aba3685429c14c48, type: 2}
-  m_sharedMaterial: {fileID: -3728303331663998947, guid: fe71d4812f3a7c84aba3685429c14c48, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2857,8 +2857,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7f411fab077db7438e88e2d40e74e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  gameLoop: {fileID: 8300000, guid: 1b0ff62a82782e44b96a05684f85e8bb, type: 3}
-  gameOver: {fileID: 8300000, guid: cf264ffb65b8df947b0ec71207dc86ad, type: 3}
   spawn: {fileID: 2135965133}
   ovni: {fileID: 1359320474677133229, guid: cf5f923a17374f840b0b82cdd3f84b57, type: 3}
   textMeshProUGUI: {fileID: 927971987}
@@ -2992,8 +2990,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: STARTING WAVE X
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fe71d4812f3a7c84aba3685429c14c48, type: 2}
-  m_sharedMaterial: {fileID: -3728303331663998947, guid: fe71d4812f3a7c84aba3685429c14c48, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: acc9055ef3a556b4bb5fc3f7d94c1903, type: 2}
+  m_sharedMaterial: {fileID: -6771075087935641872, guid: acc9055ef3a556b4bb5fc3f7d94c1903, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3651,7 +3649,7 @@ GameObject:
   - component: {fileID: 1234646418}
   m_Layer: 7
   m_Name: Square (1)
-  m_TagString: Pared
+  m_TagString: ParedOut
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3705,11 +3703,11 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 1.0028149}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3719,7 +3717,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 3.0056298}
   m_EdgeRadius: 0
 --- !u!212 &1234646419
 SpriteRenderer:
