@@ -46,6 +46,11 @@ public class EnemyManager : MonoBehaviour
                 cambioDireccion = true;
             }
         }
+
+        if (collision.gameObject.CompareTag("ParedOut"))
+        {
+            gameManager.GameOver();
+        }
     }
 
     public void Disparar()
