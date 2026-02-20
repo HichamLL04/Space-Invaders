@@ -6,6 +6,8 @@ public class OvniManager : MonoBehaviour
     Rigidbody2D myRb;
     Animator animator;
     GameManager gameManager;
+
+    
     void Start()
     {
         myRb = GetComponent<Rigidbody2D>();
@@ -14,10 +16,12 @@ public class OvniManager : MonoBehaviour
         Movimiento();
     }
 
+
     void Update()
     {
 
     }
+
 
     void OnTriggerExit2D(Collider2D collision)
     {
@@ -27,6 +31,7 @@ public class OvniManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -38,6 +43,7 @@ public class OvniManager : MonoBehaviour
             Destroy(gameObject, duracion);
         }
     }
+
 
     void Movimiento()
     {

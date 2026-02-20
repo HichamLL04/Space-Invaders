@@ -13,12 +13,10 @@ public class EnemyManager : MonoBehaviour
     public static int direccion = 1;
     public static bool cambioDireccion = false;
 
-    EnemyMovement enemyMovement;
 
     void Start()
     {
         animator = GetComponent<Animator>();
-        enemyMovement = GetComponent<EnemyMovement>();
         gameManager = FindFirstObjectByType<GameManager>();
 
     }

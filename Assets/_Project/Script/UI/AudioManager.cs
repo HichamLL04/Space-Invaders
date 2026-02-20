@@ -5,11 +5,11 @@ public class AudioManager : MonoBehaviour
 {
     [SerializeField] AudioClip gameLoop;
     [SerializeField] AudioClip gameOver;
-
     public static AudioManager instance;
     private float masterVolume = 1f;
     string currentAudioScene = "";
     AudioSource audioSource;
+
 
     void Awake()
     {
@@ -31,15 +31,18 @@ public class AudioManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
+
     void OnDestroy()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
+
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         LoopManager(scene.name);
     }
+
 
     void LoopManager(string sceneName)
     {
@@ -58,6 +61,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+
     void PlayAudio(AudioClip audioClip)
     {
         if (audioSource == null || audioClip == null)
@@ -70,6 +74,7 @@ public class AudioManager : MonoBehaviour
         audioSource.Play();
     }
 
+
     public void SetMasterVolume(float value)
     {
         masterVolume = value;
@@ -78,10 +83,12 @@ public class AudioManager : MonoBehaviour
         UpdateAllAudioSources();
     }
 
+
     public float GetMasterVolume()
     {
         return masterVolume;
     }
+
 
     void UpdateAllAudioSources()
     {

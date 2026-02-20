@@ -5,6 +5,7 @@ public class SettingManager : MonoBehaviour
 {
     [SerializeField] Slider volumeSlider;
 
+
     void Start()
     {
         if (volumeSlider != null)
@@ -14,10 +15,12 @@ public class SettingManager : MonoBehaviour
         }
     }
 
+
     void OnVolumeChanged(float value)
     {
         AudioManager.instance.SetMasterVolume(value);
     }
+    
 
     void OnDestroy()
     {

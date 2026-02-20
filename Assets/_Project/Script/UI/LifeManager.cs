@@ -7,15 +7,19 @@ public class LifeManager : MonoBehaviour
     [SerializeField] GameObject[] vidas;
     int numVidas = 2;
     GameManager gameManager;
+
+
     void Start()
     {
         gameManager = FindFirstObjectByType<GameManager>();
     }
 
+
     void Update()
     {
 
     }
+    
 
     public void RestarVida()
     {

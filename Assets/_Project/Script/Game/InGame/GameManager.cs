@@ -31,13 +31,11 @@ public class GameManager : MonoBehaviour
     bool isPaused = false;
     bool isTogglingPause = false;
 
-
-
     void Start()
     {
         if (textMeshProUGUI != null)
             textMeshProUGUI.enabled = false;
-        
+
         audioSource = GetComponent<AudioSource>();
         enemies = GetEnemies();
         pointManager = GetComponent<PointManager>();
@@ -45,10 +43,10 @@ public class GameManager : MonoBehaviour
         enemyBoxManager = GetComponent<EnemyBoxManager>();
         enemyMovement = FindFirstObjectByType<EnemyMovement>();
         brickManagers = FindObjectsByType<BrickManager>(FindObjectsSortMode.None);
-        
+
         if (audioSource != null)
             audioSource.loop = true;
-        
+
         NextWave();
     }
 
@@ -66,7 +64,7 @@ public class GameManager : MonoBehaviour
     {
         if (audioSource == null || audioClip == null)
             return;
-        
+
         audioSource.PlayOneShot(audioClip);
     }
 
@@ -86,17 +84,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
     public int GetEnemyCount()
     {
         GetEnemies();
         return enemies?.Count() ?? 0;
     }
 
+
     public void IncreaseScore(string tag)
     {
         if (pointManager != null)
             pointManager.IncreaseScore(tag);
     }
+
 
     public void GameOver()
     {
@@ -111,11 +112,13 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("GameOver");
     }
 
+
     public void RestarVida()
     {
         if (lifeManager != null)
             lifeManager.RestarVida();
     }
+
 
     public void PopUpOvni()
     {
@@ -126,15 +129,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
     public float GetVelocidad()
     {
         return velocidad;
     }
 
+
     void NextWave()
     {
         StartCoroutine(GenerateEnemy());
     }
+
 
     IEnumerator GenerateEnemy()
     {
@@ -150,7 +156,7 @@ public class GameManager : MonoBehaviour
                         brick.EnableBrick();
                 }
             }
-            
+
             if (enemyMovement != null)
                 enemyMovement.SetVelocidad(0.5f);
         }
@@ -160,24 +166,25 @@ public class GameManager : MonoBehaviour
             enemyMovement.ContVelocidad(false);
             enemyMovement.SetLocation();
         }
-        
+
         if (textMeshProUGUI != null)
         {
             textMeshProUGUI.text = "STARTING WAVE " + wave;
             textMeshProUGUI.enabled = true;
         }
-        
+
         yield return new WaitForSeconds(3);
 
         if (enemyBoxManager != null)
             enemyBoxManager.GenerateEnemy(wave);
-        
+
         if (enemyMovement != null)
             enemyMovement.ContVelocidad(true);
-        
+
         if (textMeshProUGUI != null)
             textMeshProUGUI.enabled = false;
     }
+
 
     IEnumerator GenerateOvni()
     {
@@ -185,11 +192,12 @@ public class GameManager : MonoBehaviour
         PopUpOvni();
     }
 
+
     public float GetClipLengh(string name, Animator animator)
     {
         if (animator == null)
             return 0f;
-        
+
         AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
         foreach (AnimationClip clip in clips)
         {
@@ -198,6 +206,7 @@ public class GameManager : MonoBehaviour
         }
         return 0f;
     }
+
 
     public void TogglePause()
     {

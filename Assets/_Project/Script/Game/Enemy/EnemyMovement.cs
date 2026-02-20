@@ -15,6 +15,7 @@ public class EnemyMovement : MonoBehaviour
     Vector3 posicionInicial;
     float velOriginal = 0;
 
+
     void Start()
     {
         moveBox = gameObject;
@@ -29,6 +30,7 @@ public class EnemyMovement : MonoBehaviour
             StartCoroutine(Move());
         }
     }
+
 
     IEnumerator Move()
     {
@@ -64,15 +66,18 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
+
     public void SetLocation()
     {
         gameObject.transform.position = posicionInicial;
     }
 
+
     public void SetVelocidad(float nuevaVelocidad)
     {
         velocidad += nuevaVelocidad;
     }
+
 
     public void ContVelocidad(bool activar)
     {
@@ -86,6 +91,7 @@ public class EnemyMovement : MonoBehaviour
             velocidad = velOriginal;
         }
     }
+
 
     IEnumerator Pause(float cooldown)
     {

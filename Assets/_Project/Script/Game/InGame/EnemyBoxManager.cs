@@ -9,15 +9,19 @@ public class EnemyBoxManager : MonoBehaviour
     [SerializeField] HorizontalLayoutGroup[] horizontalLayoutGroup;
     [SerializeField] GameObject[] alien;
     // Del 0 al 1 Alien 1. El 2 es Alien 2 y asi continua hasta el 5. Debe haber 8 por fila
+    
+    
     void Start()
     {
 
     }
 
+
     void Update()
     {
 
     }
+
 
     public void GenerateEnemy(int wave)
     {
@@ -42,12 +46,14 @@ public class EnemyBoxManager : MonoBehaviour
         StartCoroutine(DisableLayoutDelayed());
     }
 
+
     IEnumerator DisableLayoutDelayed()
     {
         yield return null;
         yield return null;
         DisableLayoutGroup();
     }
+
 
     void EnableLayoutGroup()
     {
@@ -57,6 +63,7 @@ public class EnemyBoxManager : MonoBehaviour
         }
     }
 
+
     void DisableLayoutGroup()
     {
         foreach (HorizontalLayoutGroup group in horizontalLayoutGroup)
@@ -64,6 +71,7 @@ public class EnemyBoxManager : MonoBehaviour
             group.GetComponent<RowManager>().DisableLayoutGroup();
         }
     }
+
 
     void GenerateLine(int idAlien, int idRow)
     {

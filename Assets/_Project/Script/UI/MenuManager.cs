@@ -8,17 +8,20 @@ public class MenuManager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI[] score;
     GameManager gameManager;
-    
+
+
     void Start()
     {
         SetScore();
         gameManager = FindFirstObjectByType<GameManager>();
     }
 
+
     void Update()
     {
 
     }
+
 
     void SetScore()
     {
@@ -29,15 +32,17 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+
     public void Exit()
     {
         Application.Quit();
     }
 
+
     public void Return()
     {
         string currentScene = SceneManager.GetActiveScene().name;
-        
+
         if (currentScene == "GameOver")
         {
             gameManager.TogglePause();
@@ -48,15 +53,18 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+
     public void Restart()
     {
         SceneManager.LoadScene("Game");
     }
 
+
     public void Main()
     {
         SceneManager.LoadScene("HomeScreen");
     }
+    
 
     public void Setting()
     {

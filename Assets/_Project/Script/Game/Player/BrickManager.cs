@@ -4,15 +4,19 @@ public class BrickManager : MonoBehaviour
 {
     int hit = 1;
     Animator animator;
+
+
     void Start()
     {
         animator = GetComponent<Animator>();
     }
 
+
     void Update()
     {
 
     }
+
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -37,6 +41,7 @@ public class BrickManager : MonoBehaviour
         }
         hit += 1;
     }
+    
 
     public void EnableBrick()
     {

@@ -14,12 +14,14 @@ public class PlayerMovement : MonoBehaviour
     Vector2 moveInput;
     GameManager gameManager;
 
+
     void Start()
     {
         myRb = GetComponent<Rigidbody2D>();
         cooldownRestante = tiempoAtaque;
         gameManager = FindFirstObjectByType<GameManager>();
     }
+
 
     void Update()
     {
@@ -33,12 +35,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+
     public void OnMove(InputAction.CallbackContext value)
     {
         moveInput = value.ReadValue<Vector2>();
         Vector2 playerVelocity = new Vector2(moveInput.x * speed, 0f);
         myRb.linearVelocity = playerVelocity;
     }
+
 
     public void OnAttack()
     {
@@ -52,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
@@ -59,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
             gameManager.GameOver();
         }
     }
+
 
     public void Escape()
     {

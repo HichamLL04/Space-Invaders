@@ -4,13 +4,14 @@ using UnityEngine;
 public class PointManager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI textMeshProUGUI;
-
     int score = 0;
+
 
     void Start()
     {
         UpdateScoreText();
     }
+
 
     public void IncreaseScore(string tag)
     {
@@ -38,10 +39,12 @@ public class PointManager : MonoBehaviour
         UpdateScoreText();
     }
 
+
     void UpdateScoreText()
     {
         textMeshProUGUI.text = score.ToString();
     }
+    
 
     public int GetScore()
     {
