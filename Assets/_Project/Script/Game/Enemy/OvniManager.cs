@@ -7,7 +7,7 @@ public class OvniManager : MonoBehaviour
     Animator animator;
     GameManager gameManager;
 
-    
+
     void Start()
     {
         myRb = GetComponent<Rigidbody2D>();

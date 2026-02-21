@@ -64,7 +64,7 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("HomeScreen");
     }
-    
+
 
     public void Setting()
     {

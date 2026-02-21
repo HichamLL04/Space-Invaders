@@ -9,8 +9,8 @@ public class EnemyBoxManager : MonoBehaviour
     [SerializeField] HorizontalLayoutGroup[] horizontalLayoutGroup;
     [SerializeField] GameObject[] alien;
     // Del 0 al 1 Alien 1. El 2 es Alien 2 y asi continua hasta el 5. Debe haber 8 por fila
-    
-    
+
+
     void Start()
     {
 

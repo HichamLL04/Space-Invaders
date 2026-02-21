@@ -41,7 +41,7 @@ public class BrickManager : MonoBehaviour
         }
         hit += 1;
     }
-    
+
 
     public void EnableBrick()
     {

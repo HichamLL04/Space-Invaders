@@ -19,7 +19,7 @@ public class LifeManager : MonoBehaviour
     {
 
     }
-    
+
 
     public void RestarVida()
     {

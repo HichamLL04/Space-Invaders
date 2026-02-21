@@ -6,7 +6,6 @@ public class EnemyManager : MonoBehaviour
 {
     [SerializeField] GameObject prefabAtack;
     [SerializeField] AudioClip attackClip;
-
     GameManager gameManager;
     Animator animator;
     private static float lastDirectionChangeTime = 0f;

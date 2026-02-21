@@ -44,7 +44,7 @@ public class PointManager : MonoBehaviour
     {
         textMeshProUGUI.text = score.ToString();
     }
-    
+
 
     public int GetScore()
     {

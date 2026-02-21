@@ -6,6 +6,7 @@ public class EnemyAttackManager : MonoBehaviour
     Rigidbody2D myRb;
     GameManager gameManager;
     Animator animator;
+    bool trigger = false;
 
     void Start()
     {
@@ -15,10 +16,12 @@ public class EnemyAttackManager : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && !trigger)
         {
+            trigger = true;
             gameManager.RestarVida();
         }
         float duracion = gameManager.GetClipLengh("Explotion", animator);
