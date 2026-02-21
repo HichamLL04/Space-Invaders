@@ -20,7 +20,7 @@ public class SettingManager : MonoBehaviour
     {
         AudioManager.instance.SetMasterVolume(value);
     }
-    
+
 
     void OnDestroy()
     {

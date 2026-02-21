@@ -8,7 +8,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] float cooldown = 1f;
     [SerializeField] float velocidad = 1;
     [SerializeField] float caida = 1;
-    [SerializeField] float probabilidadAtaque = 0.02f;
+    [SerializeField] float probabilidadAtaque = 0.10f;
     private bool moviendo = false;
     GameObject moveBox;
     GameManager gameManager;
