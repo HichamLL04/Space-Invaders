@@ -158,7 +158,10 @@ public class GameManager : MonoBehaviour
             }
 
             if (enemyMovement != null)
+            {
                 enemyMovement.SetVelocidad(0.5f);
+                enemyMovement.SetProbabilidad(1);
+            }
         }
 
         if (enemyMovement != null)
