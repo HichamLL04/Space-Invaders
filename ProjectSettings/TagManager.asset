@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags:
+  - Block
+  - Attack
+  - Pared
+  - Enemy5
+  - Enemy4
+  - Enemy3
+  - Enemy2
+  - Enemy1
+  - EnemyAttack
+  - Ovni
+  - Fondo
+  - ParedOut
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Player
+  - Water
+  - UI
+  - Block
+  - Pared
+  - Attack
+  - Enemy
+  - EnemyAttack
+  - Ovni
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 1734686987
+    locked: 0
+  - name: Blocks
+    uniqueID: 212535265
+    locked: 0
+  - name: Player
+    uniqueID: 2897345037
+    locked: 0
+  - name: Enemy
+    uniqueID: 1924479751
+    locked: 0
+  - name: EnemyAttack
+    uniqueID: 3026600373
+    locked: 0
+  m_RenderingLayers:
+  - Default
