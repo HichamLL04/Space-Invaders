@@ -75,7 +75,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void SetVelocidad(float nuevaVelocidad)
     {
-        velocidad += nuevaVelocidad;
+        cooldown -= nuevaVelocidad;
     }
 
 

@@ -165,7 +165,7 @@ public class GameManager : MonoBehaviour
 
             if (enemyMovement != null)
             {
-                enemyMovement.SetVelocidad(0.5f);
+                enemyMovement.SetVelocidad(0.05f);
                 enemyMovement.SetProbabilidad(0.15f);
             }
         }
