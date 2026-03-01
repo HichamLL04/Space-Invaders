@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 75110397}
   - component: {fileID: 75110398}
   m_Layer: 0
-  m_Name: Null
+  m_Name: AudioManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -285,6 +285,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
   gameLoop: {fileID: 8300000, guid: 1b0ff62a82782e44b96a05684f85e8bb, type: 3}
   gameOver: {fileID: 8300000, guid: cf264ffb65b8df947b0ec71207dc86ad, type: 3}
+  attackClip: {fileID: 8300000, guid: 3e199a0d27d61ad438eff9c95e9ad1e2, type: 3}
+  hitClip: {fileID: 8300000, guid: 67f2a7922f269c14ea74e0b046b914b4, type: 3}
+  musicMultiplier: 0.2
+  sfxMultiplier: 6
 --- !u!82 &75110398
 AudioSource:
   m_ObjectHideFlags: 0

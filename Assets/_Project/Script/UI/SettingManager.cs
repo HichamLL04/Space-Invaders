@@ -3,15 +3,22 @@ using UnityEngine.UI;
 
 public class SettingManager : MonoBehaviour
 {
-    [SerializeField] Slider volumeSlider;
+    [SerializeField] Slider musicSlider;
+    [SerializeField] Slider sfxSlider;
 
 
     void Start()
     {
-        if (volumeSlider != null)
+        if (musicSlider != null)
         {
-            volumeSlider.value = AudioManager.instance.GetMasterVolume();
-            volumeSlider.onValueChanged.AddListener(OnVolumeChanged);
+            musicSlider.value = AudioManager.instance.GetMasterVolume();
+            musicSlider.onValueChanged.AddListener(OnVolumeChanged);
+        }
+
+        if (sfxSlider != null)
+        {
+            sfxSlider.value = AudioManager.instance.GetSFXVolume();
+            sfxSlider.onValueChanged.AddListener(OnSFXChanged);
         }
     }
 
@@ -22,11 +29,18 @@ public class SettingManager : MonoBehaviour
     }
 
 
+    void OnSFXChanged(float value)
+    {
+        AudioManager.instance.SetSFXVolume(value);
+    }
+
+
     void OnDestroy()
     {
-        if (volumeSlider != null)
-        {
-            volumeSlider.onValueChanged.RemoveListener(OnVolumeChanged);
-        }
+        if (musicSlider != null)
+            musicSlider.onValueChanged.RemoveListener(OnVolumeChanged);
+
+        if (sfxSlider != null)
+            sfxSlider.onValueChanged.RemoveListener(OnSFXChanged);
     }
 }
