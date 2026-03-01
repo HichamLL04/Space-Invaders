@@ -32,9 +32,12 @@ public class EnemyAttackManager : MonoBehaviour
     {
         if ((collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("ParedOut")) && !trigger)
         {
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                gameManager.RestarVida();
+                gameManager.Hit();
+            }
             trigger = true;
-            gameManager.RestarVida();
-            gameManager.Hit();
             float duracion = gameManager.GetClipLengh("Explotion", animator);
             animator.SetTrigger("exp");
             Destroy(gameObject, duracion);
