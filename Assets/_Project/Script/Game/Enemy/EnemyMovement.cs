@@ -46,11 +46,10 @@ public class EnemyMovement : MonoBehaviour
         else
         {
             moveBox.transform.Translate(Vector3.down * caida);
-            StartCoroutine(Pause(2f));
             moveBox.transform.Translate(Vector3.right * velocidad * direccion);
             EnemyManager.cambioDireccion = false;
         }
-        yield return new WaitForSecondsRealtime(cooldown);
+        yield return new WaitForSeconds(cooldown);
         moviendo = false;
     }
 
@@ -75,7 +74,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void SetVelocidad(float nuevaVelocidad)
     {
-        velocidad += nuevaVelocidad;
+        cooldown -= nuevaVelocidad;
     }
 
 
@@ -98,8 +97,16 @@ public class EnemyMovement : MonoBehaviour
         yield return new WaitForSecondsRealtime(cooldown);
     }
 
+
     public void SetProbabilidad(float number)
     {
         probabilidadAtaque += number;
+    }
+
+
+    public void PausarMovimiento()
+    {
+        StopAllCoroutines();
+        moviendo = false;
     }
 }

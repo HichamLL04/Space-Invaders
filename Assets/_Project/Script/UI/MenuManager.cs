@@ -41,27 +41,20 @@ public class MenuManager : MonoBehaviour
 
     public void Return()
     {
-        string currentScene = SceneManager.GetActiveScene().name;
-
-        if (currentScene == "GameOver")
-        {
-            gameManager.TogglePause();
-        }
-        else if (currentScene == "SettingScreen")
-        {
-            SceneManager.LoadScene("Game");
-        }
+        Time.timeScale = 1f;
+        gameManager.TogglePause();
     }
 
 
     public void Restart()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Game");
     }
 
-
     public void Main()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("HomeScreen");
     }
 

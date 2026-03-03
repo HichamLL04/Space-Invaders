@@ -38,6 +38,7 @@ public class OvniManager : MonoBehaviour
         if (collision.gameObject.CompareTag("Attack"))
         {
             float duracion = gameManager.GetClipLengh("Explotion", animator);
+            gameManager.IncreaseScore(gameObject.tag);
             animator.SetTrigger("hit");
             GameManager.isCounting = false;
             Destroy(gameObject, duracion);

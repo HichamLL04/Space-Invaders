@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.InputSystem;
+using System;
 
 
 public class GameManager : MonoBehaviour
@@ -18,12 +19,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject menuPausa;
     [SerializeField] GameObject inGame;
     [SerializeField] CanvasGroup inGameCanvasGroup;
-    AudioSource audioSource;
     PointManager pointManager;
+    AudioManager audioManager;
     LifeManager lifeManager;
     EnemyBoxManager enemyBoxManager;
     EnemyMovement enemyMovement;
     BrickManager[] brickManagers;
+    PlayerMovement playerMovement;
     public static EnemyManager[] enemies;
     public static float score;
     public static bool isCounting = false;
@@ -36,16 +38,14 @@ public class GameManager : MonoBehaviour
         if (textMeshProUGUI != null)
             textMeshProUGUI.enabled = false;
 
-        audioSource = GetComponent<AudioSource>();
         enemies = GetEnemies();
         pointManager = GetComponent<PointManager>();
         lifeManager = GetComponent<LifeManager>();
         enemyBoxManager = GetComponent<EnemyBoxManager>();
         enemyMovement = FindFirstObjectByType<EnemyMovement>();
         brickManagers = FindObjectsByType<BrickManager>(FindObjectsSortMode.None);
-
-        if (audioSource != null)
-            audioSource.loop = true;
+        playerMovement = FindFirstObjectByType<PlayerMovement>();
+        audioManager = FindFirstObjectByType<AudioManager>();
 
         NextWave();
     }
@@ -57,15 +57,6 @@ public class GameManager : MonoBehaviour
             isCounting = true;
             StartCoroutine(GenerateOvni());
         }
-    }
-
-
-    public void PlayOnce(AudioClip audioClip)
-    {
-        if (audioSource == null || audioClip == null)
-            return;
-
-        audioSource.PlayOneShot(audioClip);
     }
 
     public EnemyManager[] GetEnemies()
@@ -165,7 +156,7 @@ public class GameManager : MonoBehaviour
 
             if (enemyMovement != null)
             {
-                enemyMovement.SetVelocidad(0.5f);
+                enemyMovement.SetVelocidad(0.05f);
                 enemyMovement.SetProbabilidad(0.15f);
             }
         }
@@ -230,6 +221,8 @@ public class GameManager : MonoBehaviour
             menuPausa.SetActive(true);
             Time.timeScale = 0f;
             inGame.SetActive(false);
+            if (enemyMovement != null)
+                enemyMovement.PausarMovimiento();
         }
         else
         {
@@ -239,5 +232,15 @@ public class GameManager : MonoBehaviour
         }
 
         isTogglingPause = false;
+    }
+
+    public void Hit()
+    {
+        playerMovement.Hit();
+    }
+
+    public void PlayClip(String clipName)
+    {
+        audioManager.PlayOnce(clipName);
     }
 }

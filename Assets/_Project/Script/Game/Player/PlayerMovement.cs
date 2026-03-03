@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
@@ -7,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] GameObject prefabAtack;
     [SerializeField] float tiempoAtaque = 1;
-    [SerializeField] AudioClip attackClip;
     float cooldownRestante;
     bool canAttack = false;
     Rigidbody2D myRb;
@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
         {
             GameObject ataque = Instantiate(prefabAtack, transform.position, Quaternion.identity);
             ataque.transform.parent = transform;
-            gameManager.PlayOnce(attackClip);
+            gameManager.PlayClip("attackClip");
             canAttack = false;
             cooldownRestante = tiempoAtaque;
         }
@@ -77,5 +77,20 @@ public class PlayerMovement : MonoBehaviour
     public void Escape()
     {
         gameManager.TogglePause();
+    }
+
+    public void Hit()
+    {
+        gameManager.PlayClip("hitClip");
+        StartCoroutine(HitEffect());
+    }
+
+    IEnumerator HitEffect()
+    {
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+
+        sr.color = new Color(1f, 1f, 1f, 0.3f);
+        yield return new WaitForSeconds(0.2f);
+        sr.color = new Color(1f, 1f, 1f, 1f);
     }
 }
