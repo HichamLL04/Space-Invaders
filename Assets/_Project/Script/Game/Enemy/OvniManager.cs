@@ -27,6 +27,10 @@ public class OvniManager : MonoBehaviour
     {
         if (collision.CompareTag("Fondo"))
         {
+            if (Time.timeScale == 0f)
+                return;
+
+            Debug.Log("OnTriggerExit2D");
             GameManager.isCounting = false;
             Destroy(gameObject);
         }
@@ -37,6 +41,7 @@ public class OvniManager : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Attack"))
         {
+            Debug.Log("OnCollisionEnter2D");
             float duracion = gameManager.GetClipLengh("Explotion", animator);
             gameManager.IncreaseScore(gameObject.tag);
             animator.SetTrigger("hit");
