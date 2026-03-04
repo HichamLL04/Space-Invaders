@@ -188,7 +188,8 @@ public class GameManager : MonoBehaviour
 
     IEnumerator GenerateOvni()
     {
-        yield return new WaitForSeconds(21f);
+        Debug.Log("ovni en 5");
+        yield return new WaitForSeconds(5f);
         PopUpOvni();
     }
 

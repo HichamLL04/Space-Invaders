@@ -322,6 +322,8 @@ MonoBehaviour:
   gameOver: {fileID: 0}
   attackClip: {fileID: 0}
   hitClip: {fileID: 0}
+  musicMultiplier: 0.5
+  sfxMultiplier: 4
 --- !u!1 &93507940
 GameObject:
   m_ObjectHideFlags: 0
@@ -1676,7 +1678,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 000000000b3965670dfab1ace107ab0c073bb572b54166b4
+  m_ApplyToSortingLayers: 000000000b3965670dfab1ace107ab0c073bb572b54166b49fff1d63
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
