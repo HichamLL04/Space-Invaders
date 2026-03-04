@@ -222,8 +222,13 @@ public class GameManager : MonoBehaviour
             menuPausa.SetActive(true);
             Time.timeScale = 0f;
             inGame.SetActive(false);
+
             if (enemyMovement != null)
                 enemyMovement.PausarMovimiento();
+
+            OvniManager ovni = FindFirstObjectByType<OvniManager>(FindObjectsInactive.Include);
+            if (ovni != null)
+                ovni.PausarMovimiento();
         }
         else
         {
