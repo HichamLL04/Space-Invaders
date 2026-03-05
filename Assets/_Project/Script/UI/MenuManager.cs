@@ -41,20 +41,30 @@ public class MenuManager : MonoBehaviour
 
     public void Return()
     {
-        Time.timeScale = 1f;
+        if (Time.timeScale == 0)
+        {
+            Time.timeScale = 1f;
+        }
         gameManager.TogglePause();
     }
 
 
     public void Restart()
     {
-        Time.timeScale = 1f;
+        if (Time.timeScale == 0)
+        {
+            Time.timeScale = 1f;
+        }
+
         SceneManager.LoadScene("Game");
     }
 
     public void Main()
     {
-        Time.timeScale = 1f;
+        if (Time.timeScale == 0)
+        {
+            Time.timeScale = 1f;
+        }
         SceneManager.LoadScene("HomeScreen");
     }
 

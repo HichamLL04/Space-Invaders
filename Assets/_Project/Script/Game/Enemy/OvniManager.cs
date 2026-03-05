@@ -1,3 +1,5 @@
+using System.Collections;
+using NUnit.Framework.Constraints;
 using UnityEngine;
 
 public class OvniManager : MonoBehaviour
@@ -6,6 +8,8 @@ public class OvniManager : MonoBehaviour
     Rigidbody2D myRb;
     Animator animator;
     GameManager gameManager;
+    private Vector2 velocidadGuardada;
+    private bool moviendo = false;
 
 
     void Start()
@@ -19,7 +23,10 @@ public class OvniManager : MonoBehaviour
 
     void Update()
     {
-
+        if (!moviendo)
+        {
+            StartCoroutine(Movimiento());
+        }
     }
 
 
@@ -27,6 +34,10 @@ public class OvniManager : MonoBehaviour
     {
         if (collision.CompareTag("Fondo"))
         {
+            if (Time.timeScale == 0f)
+                return;
+
+            Debug.Log("OnTriggerExit2D");
             GameManager.isCounting = false;
             Destroy(gameObject);
         }
@@ -37,6 +48,7 @@ public class OvniManager : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Attack"))
         {
+            Debug.Log("OnCollisionEnter2D");
             float duracion = gameManager.GetClipLengh("Explotion", animator);
             gameManager.IncreaseScore(gameObject.tag);
             animator.SetTrigger("hit");
@@ -46,8 +58,16 @@ public class OvniManager : MonoBehaviour
     }
 
 
-    void Movimiento()
+    IEnumerator Movimiento()
     {
         myRb.linearVelocity = new Vector2(speed, 0);
+        moviendo = true;
+        yield return null;
+    }
+
+    public void PausarMovimiento()
+    {
+        StopAllCoroutines();
+        moviendo = false;
     }
 }
