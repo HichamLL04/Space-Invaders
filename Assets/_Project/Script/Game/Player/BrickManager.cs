@@ -12,12 +12,6 @@ public class BrickManager : MonoBehaviour
     }
 
 
-    void Update()
-    {
-
-    }
-
-
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("EnemyAttack"))
@@ -50,6 +44,7 @@ public class BrickManager : MonoBehaviour
         gameObject.SetActive(true);
         animator.SetTrigger("NextWave");
     }
+
 
     public void ResetTrigger()
     {

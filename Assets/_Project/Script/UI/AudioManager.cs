@@ -17,6 +17,7 @@ public class AudioManager : MonoBehaviour
     string currentAudioScene = "";
     AudioSource audioSource;
 
+
     void Awake()
     {
         if (instance != null && instance != this)

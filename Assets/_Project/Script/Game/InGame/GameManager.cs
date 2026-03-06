@@ -30,8 +30,10 @@ public class GameManager : MonoBehaviour
     public static float score;
     public static bool isCounting = false;
     public static int wave = 1;
-    bool isPaused = false;
     bool isTogglingPause = false;
+    public static bool isPaused = false;
+    private float ovniTimer = 0f;
+
 
     void Start()
     {
@@ -52,10 +54,14 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (!isCounting)
+        if (!isPaused)
         {
-            isCounting = true;
-            StartCoroutine(GenerateOvni());
+            ovniTimer += Time.deltaTime;
+            if (ovniTimer >= 21f)
+            {
+                PopUpOvni();
+                ovniTimer = 0f;
+            }
         }
     }
 
@@ -186,14 +192,6 @@ public class GameManager : MonoBehaviour
     }
 
 
-    IEnumerator GenerateOvni()
-    {
-        Debug.Log("ovni en 5");
-        yield return new WaitForSeconds(5f);
-        PopUpOvni();
-    }
-
-
     public float GetClipLengh(string name, Animator animator)
     {
         if (animator == null)
@@ -222,13 +220,6 @@ public class GameManager : MonoBehaviour
             menuPausa.SetActive(true);
             Time.timeScale = 0f;
             inGame.SetActive(false);
-
-            if (enemyMovement != null)
-                enemyMovement.PausarMovimiento();
-
-            OvniManager ovni = FindFirstObjectByType<OvniManager>(FindObjectsInactive.Include);
-            if (ovni != null)
-                ovni.PausarMovimiento();
         }
         else
         {
@@ -240,10 +231,12 @@ public class GameManager : MonoBehaviour
         isTogglingPause = false;
     }
 
+
     public void Hit()
     {
         playerMovement.Hit();
     }
+
 
     public void PlayClip(String clipName)
     {
