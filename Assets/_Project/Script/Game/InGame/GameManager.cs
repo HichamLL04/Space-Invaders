@@ -37,6 +37,13 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+
+        Time.timeScale = 1f;
+        isPaused = false;
+        isCounting = false;
+        wave = 1;
+        score = 0;
+
         if (textMeshProUGUI != null)
             textMeshProUGUI.enabled = false;
 
