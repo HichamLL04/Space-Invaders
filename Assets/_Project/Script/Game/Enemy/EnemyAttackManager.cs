@@ -8,6 +8,7 @@ public class EnemyAttackManager : MonoBehaviour
     Animator animator;
     bool trigger = false;
 
+
     void Start()
     {
         myRb = GetComponent<Rigidbody2D>();
@@ -16,8 +17,25 @@ public class EnemyAttackManager : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+
+    void Update()
+    {
+        if (GameManager.isPaused)
+        {
+            myRb.linearVelocity = Vector2.zero;
+        }
+        else
+        {
+            myRb.linearVelocityY = -speed;
+        }
+    }
+
+
     void OnCollisionEnter2D(Collision2D collision)
     {
+        if (GameManager.isPaused)
+            return;
+
         if (!trigger)
         {
             Delete();
@@ -27,6 +45,9 @@ public class EnemyAttackManager : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        if (GameManager.isPaused)
+            return;
+
         if (collision.gameObject.CompareTag("Player") && !trigger)
         {
             gameManager.RestarVida();

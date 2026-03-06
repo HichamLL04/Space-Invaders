@@ -8,8 +8,6 @@ public class OvniManager : MonoBehaviour
     Rigidbody2D myRb;
     Animator animator;
     GameManager gameManager;
-    private Vector2 velocidadGuardada;
-    private bool moviendo = false;
 
 
     void Start()
@@ -17,26 +15,28 @@ public class OvniManager : MonoBehaviour
         myRb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         gameManager = FindFirstObjectByType<GameManager>();
-        Movimiento();
     }
 
 
     void Update()
     {
-        if (!moviendo)
+        if (GameManager.isPaused)
         {
-            StartCoroutine(Movimiento());
+            myRb.linearVelocity = Vector2.zero;
+            return;
         }
+
+        myRb.linearVelocity = new Vector2(speed, 0);
     }
 
 
     void OnTriggerExit2D(Collider2D collision)
     {
+        if (GameManager.isPaused)
+            return;
+
         if (collision.CompareTag("Fondo"))
         {
-            if (Time.timeScale == 0f)
-                return;
-
             Debug.Log("OnTriggerExit2D");
             GameManager.isCounting = false;
             Destroy(gameObject);
@@ -46,6 +46,9 @@ public class OvniManager : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        if (GameManager.isPaused)
+            return;
+
         if (collision.gameObject.CompareTag("Attack"))
         {
             Debug.Log("OnCollisionEnter2D");
@@ -55,19 +58,5 @@ public class OvniManager : MonoBehaviour
             GameManager.isCounting = false;
             Destroy(gameObject, duracion);
         }
-    }
-
-
-    IEnumerator Movimiento()
-    {
-        myRb.linearVelocity = new Vector2(speed, 0);
-        moviendo = true;
-        yield return null;
-    }
-
-    public void PausarMovimiento()
-    {
-        StopAllCoroutines();
-        moviendo = false;
     }
 }

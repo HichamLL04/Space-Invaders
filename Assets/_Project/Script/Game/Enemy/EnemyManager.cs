@@ -17,11 +17,14 @@ public class EnemyManager : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         gameManager = FindFirstObjectByType<GameManager>();
-
     }
+
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        if (GameManager.isPaused)
+            return;
+
         if (collision.gameObject.CompareTag("Attack"))
         {
             float duracion = gameManager.GetClipLengh("Explotion", animator);
@@ -32,8 +35,12 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+
     void OnTriggerEnter2D(Collider2D collision)
     {
+        if (GameManager.isPaused)
+            return;
+
         if (collision.gameObject.CompareTag("Pared"))
         {
             if (Time.time - lastDirectionChangeTime > 2f)
@@ -50,11 +57,14 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+
     public void Disparar()
     {
+        if (GameManager.isPaused)
+            return;
+
         GameObject ataque = Instantiate(prefabAtack, transform.position, Quaternion.identity);
-        ataque.transform.parent = transform;
-        ataque.transform.SetParent(null);
+        ataque.transform.SetParent(transform);
         gameManager.PlayClip("attackClip");
     }
 }

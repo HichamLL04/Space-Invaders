@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class AttackManager : MonoBehaviour
 {
-    float speed = 10f;
+    [SerializeField] float speed = 10f;
     Rigidbody2D myRb;
 
 
@@ -15,13 +15,22 @@ public class AttackManager : MonoBehaviour
 
     void Update()
     {
-
+        if (GameManager.isPaused)
+        {
+            myRb.linearVelocity = Vector2.zero;
+        }
+        else
+        {
+            myRb.linearVelocityY = speed;
+        }
     }
-
 
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        if (GameManager.isPaused)
+            return;
+
         Destroy(gameObject);
     }
 }

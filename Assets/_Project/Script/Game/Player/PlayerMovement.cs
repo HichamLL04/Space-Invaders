@@ -65,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
@@ -79,11 +80,13 @@ public class PlayerMovement : MonoBehaviour
         gameManager.TogglePause();
     }
 
+
     public void Hit()
     {
         gameManager.PlayClip("hitClip");
         StartCoroutine(HitEffect());
     }
+
 
     IEnumerator HitEffect()
     {

@@ -15,12 +15,6 @@ public class LifeManager : MonoBehaviour
     }
 
 
-    void Update()
-    {
-
-    }
-
-
     public void RestarVida()
     {
         if (numVidas >= 1)

@@ -9,7 +9,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] float velocidad = 1;
     [SerializeField] float caida = 1;
     [SerializeField] float probabilidadAtaque = 0.10f;
-    private bool moviendo = false;
+    private float moveTimer = 0f;
     GameObject moveBox;
     GameManager gameManager;
     Vector3 posicionInicial;
@@ -23,19 +23,23 @@ public class EnemyMovement : MonoBehaviour
         posicionInicial = gameObject.transform.position;
     }
 
+
     void Update()
     {
-        if (!moviendo)
+        if (GameManager.isPaused)
+            return;
+
+        moveTimer += Time.deltaTime;
+        if (moveTimer >= cooldown)
         {
-            StartCoroutine(Move());
+            Move();
+            moveTimer = 0f;
         }
     }
 
 
-    IEnumerator Move()
+    void Move()
     {
-        moviendo = true;
-
         int direccion = EnemyManager.direccion;
 
         if (!EnemyManager.cambioDireccion)
@@ -49,9 +53,8 @@ public class EnemyMovement : MonoBehaviour
             moveBox.transform.Translate(Vector3.right * velocidad * direccion);
             EnemyManager.cambioDireccion = false;
         }
-        yield return new WaitForSeconds(cooldown);
-        moviendo = false;
     }
+
 
     void EnemyAttack()
     {
@@ -92,21 +95,8 @@ public class EnemyMovement : MonoBehaviour
     }
 
 
-    IEnumerator Pause(float cooldown)
-    {
-        yield return new WaitForSecondsRealtime(cooldown);
-    }
-
-
     public void SetProbabilidad(float number)
     {
         probabilidadAtaque += number;
-    }
-
-
-    public void PausarMovimiento()
-    {
-        StopAllCoroutines();
-        moviendo = false;
     }
 }
