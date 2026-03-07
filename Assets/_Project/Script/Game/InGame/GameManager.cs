@@ -113,7 +113,7 @@ public class GameManager : MonoBehaviour
                 PlayerPrefs.SetFloat("HScore", score);
             }
         }
-        SceneManager.LoadScene("GameOver");
+        SceneManager.LoadScene("GameOverScreen");
     }
 
 

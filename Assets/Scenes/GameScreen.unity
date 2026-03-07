@@ -2904,6 +2904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a62683cbc3bf0634e9061772c47cad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBoxManager
+  gameUI: {fileID: 951093572}
   horizontalLayoutGroup:
   - {fileID: 564873111}
   - {fileID: 2116998794}

@@ -6,6 +6,7 @@ using static UnityEngine.UI.LayoutRebuilder;
 
 public class EnemyBoxManager : MonoBehaviour
 {
+    [SerializeField] GameObject gameUI;
     [SerializeField] HorizontalLayoutGroup[] horizontalLayoutGroup;
     [SerializeField] GameObject[] alien;
     // Del 0 al 1 Alien 1. El 2 es Alien 2 y asi continua hasta el 5. Debe haber 8 por fila
@@ -79,5 +80,10 @@ public class EnemyBoxManager : MonoBehaviour
         {
             Instantiate(alien[idAlien], horizontalLayoutGroup[idRow].transform);
         }
+    }
+
+    public Transform GetGameUi()
+    {
+        return gameUI.transform;
     }
 }

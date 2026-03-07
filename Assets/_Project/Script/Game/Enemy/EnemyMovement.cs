@@ -8,7 +8,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] float cooldown = 1f;
     [SerializeField] float velocidad = 1;
     [SerializeField] float caida = 1;
-    [SerializeField] float probabilidadAtaque = 0.10f;
+    [SerializeField] float probabilidadAtaque = 1f;
     private float moveTimer = 0f;
     GameObject moveBox;
     GameManager gameManager;

@@ -8,6 +8,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] AudioClip attackClip;
     GameManager gameManager;
     Animator animator;
+    EnemyBoxManager enemyBoxManager;
     private static float lastDirectionChangeTime = 0f;
     public static int direccion = 1;
     public static bool cambioDireccion = false;
@@ -17,6 +18,7 @@ public class EnemyManager : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         gameManager = FindFirstObjectByType<GameManager>();
+        enemyBoxManager = FindFirstObjectByType<EnemyBoxManager>();
     }
 
 
@@ -63,8 +65,8 @@ public class EnemyManager : MonoBehaviour
         if (GameManager.isPaused)
             return;
 
-        GameObject ataque = Instantiate(prefabAtack, transform.position, Quaternion.identity);
-        ataque.transform.SetParent(transform);
+        GameObject ataque = Instantiate(prefabAtack, transform.position, Quaternion.identity, transform);
+        ataque.transform.SetParent(enemyBoxManager.GetGameUi());
         gameManager.PlayClip("attackClip");
     }
 }
