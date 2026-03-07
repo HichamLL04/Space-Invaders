@@ -34,7 +34,22 @@ public class EnemyBoxManager : MonoBehaviour
             GenerateLine(0, 1);
             GenerateLine(1, 2);
         }
-        else if (wave > 1)
+        else if (wave == 2)
+        {
+            GenerateLine(0, 0);
+            GenerateLine(0, 1);
+            GenerateLine(1, 2);
+            GenerateLine(2, 3);
+        }
+        else if (wave == 3)
+        {
+            GenerateLine(0, 0);
+            GenerateLine(0, 1);
+            GenerateLine(1, 2);
+            GenerateLine(2, 3);
+            GenerateLine(3, 4);
+        }
+        else if (wave >= 4)
         {
             GenerateLine(0, 0);
             GenerateLine(0, 1);
