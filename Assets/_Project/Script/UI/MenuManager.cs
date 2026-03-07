@@ -28,7 +28,7 @@ public class MenuManager : MonoBehaviour
         if (score != null && score.Length >= 2)
         {
             score[0].text = "Score: \n" + GameManager.score;
-            score[1].text = "highest Score: \n" + PlayerPrefs.GetFloat("HScore");
+            score[1].text = "Highest Score: \n" + PlayerPrefs.GetFloat("HScore");
         }
     }
 
