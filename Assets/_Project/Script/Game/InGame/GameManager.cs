@@ -184,6 +184,7 @@ public class GameManager : MonoBehaviour
         {
             textMeshProUGUI.text = "STARTING WAVE " + wave;
             textMeshProUGUI.enabled = true;
+            playerMovement.SetAtack(false);
         }
 
         yield return new WaitForSeconds(3);
@@ -195,7 +196,10 @@ public class GameManager : MonoBehaviour
             enemyMovement.ContVelocidad(true);
 
         if (textMeshProUGUI != null)
+        {
             textMeshProUGUI.enabled = false;
+            playerMovement.SetAtack(true);
+        }
     }
 
 

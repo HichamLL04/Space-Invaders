@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D myRb;
     Vector2 moveInput;
     GameManager gameManager;
+    bool wave = false;
 
 
     void Start()
@@ -25,11 +26,14 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (wave)
+            return;
+
         if (cooldownRestante > 0)
         {
             cooldownRestante -= Time.deltaTime;
         }
-        else
+        else if (canAttack == false)
         {
             canAttack = true;
         }
@@ -95,5 +99,15 @@ public class PlayerMovement : MonoBehaviour
         sr.color = new Color(1f, 1f, 1f, 0.3f);
         yield return new WaitForSeconds(0.2f);
         sr.color = new Color(1f, 1f, 1f, 1f);
+    }
+
+    public void SetAtack(bool canAttackNow)
+    {
+        wave = !canAttackNow;
+        canAttack = canAttackNow;
+        if (!canAttackNow)
+        {
+            cooldownRestante = tiempoAtaque;
+        }
     }
 }

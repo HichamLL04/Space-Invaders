@@ -36,6 +36,7 @@ public class PointManager : MonoBehaviour
                 score += 100;
                 break;
         }
+        PlayerPrefs.SetFloat("Score", score);
         UpdateScoreText();
     }
 
