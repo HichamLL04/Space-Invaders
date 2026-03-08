@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     BrickManager[] brickManagers;
     PlayerMovement playerMovement;
     public static EnemyManager[] enemies;
+    public static EnemyAttackManager[] attacks;
     public static float score;
     public static bool isCounting = false;
     public static int wave = 1;
@@ -231,15 +232,43 @@ public class GameManager : MonoBehaviour
             menuPausa.SetActive(true);
             Time.timeScale = 0f;
             inGame.SetActive(false);
+            DisableAttackRenderers();
         }
         else
         {
             menuPausa.SetActive(false);
             Time.timeScale = 1f;
             inGame.SetActive(true);
+            EnableAttackRenderers();
         }
 
         isTogglingPause = false;
+    }
+
+    public EnemyAttackManager[] GetAttacks()
+    {
+        attacks = FindObjectsByType<EnemyAttackManager>(FindObjectsSortMode.None);
+        return attacks;
+    }
+
+    void DisableAttackRenderers()
+    {
+        foreach (EnemyAttackManager attack in GetAttacks())
+        {
+            SpriteRenderer sr = attack.GetComponent<SpriteRenderer>();
+            if (sr != null)
+                sr.enabled = false;
+        }
+    }
+
+    void EnableAttackRenderers()
+    {
+        foreach (EnemyAttackManager attack in GetAttacks())
+        {
+            SpriteRenderer sr = attack.GetComponent<SpriteRenderer>();
+            if (sr != null)
+                sr.enabled = true;
+        }
     }
 
 
@@ -249,7 +278,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void PlayClip(String clipName)
+    public void PlayClip(string clipName)
     {
         audioManager.PlayOnce(clipName);
     }

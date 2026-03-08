@@ -41,30 +41,27 @@ public class EnemyMovement : MonoBehaviour
     void Move()
     {
         int direccion = EnemyManager.direccion;
-        Vector3 posicionAntes = moveBox.transform.position; // Guarda ANTES de mover
-
         if (!EnemyManager.cambioDireccion)
         {
             moveBox.transform.Translate(Vector3.right * velocidad * direccion);
-            EnemyAttack(posicionAntes); // Pasa la posición
+            EnemyAttack();
         }
         else
         {
-            Vector3 posicionAntesCaida = moveBox.transform.position;
             moveBox.transform.Translate(Vector3.down * caida);
             moveBox.transform.Translate(Vector3.right * velocidad * direccion);
-            EnemyAttack(posicionAntesCaida); // Pasa la posición
+            EnemyAttack();
             EnemyManager.cambioDireccion = false;
         }
     }
 
-    void EnemyAttack(Vector3 posicion)
+    void EnemyAttack()
     {
         foreach (EnemyManager enemy in gameManager.GetEnemies())
         {
             if (UnityEngine.Random.value < probabilidadAtaque)
             {
-                enemy.Disparar(posicion);
+                enemy.Disparar();
                 return;
             }
         }

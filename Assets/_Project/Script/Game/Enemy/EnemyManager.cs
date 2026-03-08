@@ -60,13 +60,14 @@ public class EnemyManager : MonoBehaviour
     }
 
 
-    public void Disparar(Vector3 posicion)
+    public void Disparar()
     {
         if (GameManager.isPaused)
             return;
 
-        GameObject ataque = Instantiate(prefabAtack, posicion, Quaternion.identity);
-        ataque.transform.SetParent(enemyBoxManager.GetGameUi(), true);
+        GameObject ataque = Instantiate(prefabAtack, transform.position, Quaternion.identity, transform);
+        ataque.transform.localScale *= 1.5f;
+        ataque.transform.SetParent(null);
         gameManager.PlayClip("attackClip");
     }
 }
