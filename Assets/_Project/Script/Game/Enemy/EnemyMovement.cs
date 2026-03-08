@@ -8,7 +8,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] float cooldown = 1f;
     [SerializeField] float velocidad = 1;
     [SerializeField] float caida = 1;
-    [SerializeField] float probabilidadAtaque = 1f;
+    [SerializeField] float probabilidadAtaque = 0.1f;
     private float moveTimer = 0f;
     GameObject moveBox;
     GameManager gameManager;
@@ -41,28 +41,30 @@ public class EnemyMovement : MonoBehaviour
     void Move()
     {
         int direccion = EnemyManager.direccion;
+        Vector3 posicionAntes = moveBox.transform.position; // Guarda ANTES de mover
 
         if (!EnemyManager.cambioDireccion)
         {
             moveBox.transform.Translate(Vector3.right * velocidad * direccion);
-            EnemyAttack();
+            EnemyAttack(posicionAntes); // Pasa la posición
         }
         else
         {
+            Vector3 posicionAntesCaida = moveBox.transform.position;
             moveBox.transform.Translate(Vector3.down * caida);
             moveBox.transform.Translate(Vector3.right * velocidad * direccion);
+            EnemyAttack(posicionAntesCaida); // Pasa la posición
             EnemyManager.cambioDireccion = false;
         }
     }
 
-
-    void EnemyAttack()
+    void EnemyAttack(Vector3 posicion)
     {
         foreach (EnemyManager enemy in gameManager.GetEnemies())
         {
             if (UnityEngine.Random.value < probabilidadAtaque)
             {
-                enemy.Disparar();
+                enemy.Disparar(posicion);
                 return;
             }
         }

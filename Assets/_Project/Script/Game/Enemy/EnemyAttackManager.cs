@@ -50,6 +50,15 @@ public class EnemyAttackManager : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player") && !trigger)
         {
+            trigger = true;
+
+            foreach (Collider2D col in GetComponents<Collider2D>())
+            {
+                col.enabled = false;
+            }
+
+            myRb.bodyType = RigidbodyType2D.Kinematic;
+            myRb.linearVelocity = Vector2.zero;
             gameManager.RestarVida();
             gameManager.Hit();
             Delete();
