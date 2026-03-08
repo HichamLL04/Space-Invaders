@@ -66,7 +66,8 @@ public class EnemyManager : MonoBehaviour
             return;
 
         GameObject ataque = Instantiate(prefabAtack, transform.position, Quaternion.identity, transform);
-        ataque.transform.SetParent(enemyBoxManager.GetGameUi());
+        ataque.transform.SetParent(enemyBoxManager.GetGameUi(), false);
+        ataque.transform.localScale = transform.localScale;
         gameManager.PlayClip("attackClip");
     }
 }
