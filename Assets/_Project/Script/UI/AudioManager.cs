@@ -7,6 +7,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioClip gameLoop;
     [SerializeField] AudioClip gameOver;
     [SerializeField] AudioClip attackClip;
+    [SerializeField] AudioClip enemyAttackClip;
     [SerializeField] AudioClip hitClip;
     [SerializeField] float musicMultiplier = 0.5f;
     [SerializeField] float sfxMultiplier = 4f;
@@ -15,7 +16,8 @@ public class AudioManager : MonoBehaviour
     private float sfxVolume = 6f;
 
     string currentAudioScene = "";
-    AudioSource audioSource;
+    AudioSource musicSource;
+    AudioSource sfxSource;
 
 
     void Awake()
@@ -29,13 +31,15 @@ public class AudioManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
 
-        audioSource = GetComponent<AudioSource>();
-        audioSource.loop = true;
+        musicSource = GetComponent<AudioSource>();
+        musicSource.loop = true;
+
+        sfxSource = gameObject.AddComponent<AudioSource>();
+        sfxSource.loop = false;
 
         musicVolume = PlayerPrefs.GetFloat("MasterVolume", 1f);
-        audioSource.volume = musicVolume * musicMultiplier;
+        musicSource.volume = musicVolume * musicMultiplier;
         sfxVolume = PlayerPrefs.GetFloat("SFXVolume", 1f);
-
 
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
@@ -73,14 +77,14 @@ public class AudioManager : MonoBehaviour
 
     void PlayAudio(AudioClip audioClip)
     {
-        if (audioSource == null || audioClip == null)
+        if (musicSource == null || audioClip == null)
             return;
 
-        if (audioSource.clip == audioClip && audioSource.isPlaying)
+        if (musicSource.clip == audioClip && musicSource.isPlaying)
             return;
 
-        audioSource.clip = audioClip;
-        audioSource.Play();
+        musicSource.clip = audioClip;
+        musicSource.Play();
     }
 
 
@@ -101,7 +105,7 @@ public class AudioManager : MonoBehaviour
 
     void UpdateAllAudioSources()
     {
-        audioSource.volume = musicVolume * musicMultiplier;
+        musicSource.volume = musicVolume * musicMultiplier;
     }
 
 
@@ -111,13 +115,17 @@ public class AudioManager : MonoBehaviour
 
         switch (nameClip)
         {
-            case "attackClip":
+            case "playerAttackClip":
                 audioClip = attackClip;
-                audioSource.PlayOneShot(audioClip, sfxVolume);
+                sfxSource.PlayOneShot(audioClip, sfxVolume);
+                break;
+            case "enemyAttackClip":
+                audioClip = enemyAttackClip;
+                sfxSource.PlayOneShot(audioClip, sfxVolume);
                 break;
             case "hitClip":
                 audioClip = hitClip;
-                audioSource.PlayOneShot(audioClip, sfxVolume * sfxMultiplier); // Los volumenes son muy bajos
+                sfxSource.PlayOneShot(audioClip, sfxVolume * sfxMultiplier);
                 break;
             default:
                 return;

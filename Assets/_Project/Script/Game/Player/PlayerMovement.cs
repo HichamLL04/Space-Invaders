@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
         {
             GameObject ataque = Instantiate(prefabAtack, transform.position, Quaternion.identity);
             ataque.transform.parent = transform;
-            gameManager.PlayClip("attackClip");
+            gameManager.PlayClip("playerAttackClip");
             canAttack = false;
             cooldownRestante = tiempoAtaque;
         }
